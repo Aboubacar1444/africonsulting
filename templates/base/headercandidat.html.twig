@@ -1,0 +1,195 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top scrolling-navbar" style="background:#18191d;  color:#fe8d01!important;">
+    <div class="container smooth-scroll">
+        <a class="navbar-brand mr-auto" href="{{path('index')}}"><img src="{{asset('./assets/img/logo.png')}}" class="img-fluid" alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7" aria-controls="navbarSupportedContent-7" aria-expanded="true" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse show" id="navbarSupportedContent-7">
+            <ul class="navbar-nav ml-auto">
+                
+                <li class="nav-item {% if homeActive == 1 %} active {% endif %}">
+                    <a class="nav-link waves-effect baseTextColor" href="{{path('index')}}"><i class="fas fa-home"></i>Accueil</a>
+                </li>
+                <li class="nav-item dropdown notifications-nav {% if homeActive == 2 %} active {% endif %}">
+                    <a class="nav-link dropdown-toggle waves-effect baseTextColor" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class=" badge blue-gradient-rgba">{% for counted in counted %}{{counted.p}}{% endfor %}</span> <i class="fas fa-bell"></i>Emplois
+                    </a>
+                    <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item waves-effect waves-light {% if app.request.attributes.get("_route") is same as ('emploi') %} {% if typeActive == 1 %} active {% endif %} {% endif %}" href="{{path('emploi', {'type': 'offres'})}}">
+                            <i class="fas fa-money mr-2" aria-hidden="true"></i>
+                            <span>Offres</span>
+                            {# <span class="float-right" style="color:#fe8d01;">5</span> #}
+                        </a>
+                        <a class="dropdown-item waves-effect waves-light {% if app.request.attributes.get("_route") is same as ('emploi') %} {% if typeActive == 2 %} active {% endif %} {% endif %}" href="{{path('emploi', {'type': 'appels'})}}">
+                            <i class="fas fa-money mr-2" aria-hidden="true"></i>
+                            <span>Appels</span>
+                            {# <span class="float-right" style="color:#fe8d01;">5</span> #}
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item {% if homeActive is same as ('formation') %} active {% endif %}">
+                    <a class="nav-link waves-effect baseTextColor" href="{{path('formation')}}"><i class="fas fa-book-open"></i> Formations</a>
+                </li>
+                <li class="nav-item {% if homeActive is same as ('formation') %} active {% endif %}">
+                    <a class="nav-link waves-effect baseTextColor" href="{{path('formation')}}"><i class="fas fa-book-open"></i> Formations</a>
+                </li>
+                <li class="nav-item {% if homeActive is same as ('applies') %} active {% endif %}">
+                    <a class="nav-link waves-effect baseTextColor" href="{{path('applies',{'id':app.user.id})}}"><i class="fas fa-folder"></i>Mes Candidatures</a>
+                </li>
+
+        
+                {# <li class="nav-item dropdown notifications-nav {% if homeActive is same as ('options') %} active {% endif %}">
+                    <a class="nav-link dropdown-toggle waves-effect baseTextColor" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-list-alt"></i>  Options
+                    </a>
+                    <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                        
+                        <a class="dropdown-item waves-effect waves-light {% if app.request.attributes.get("_route") is same as ('moderator') %} {% if typeActive is same as ('newemploi') %} active {% endif %} {% endif %}" href="{{path('moderator')}}">
+                            <i class="fas fa-briefcase mr-2 baseTextColor"></i> 
+                            <span> Créer un emploi</span>
+                        </a>
+                        <a class="dropdown-item waves-effect waves-light {% if app.request.attributes.get("_route") is same as ('newpays') %} {% if typeActive is same as ('newpays') %} active {% endif %} {% endif %}"  href="{{path('newpays')}}">
+                            <i class="fas fa-plus mr-2 baseTextColor"></i> 
+                            <span> Ajouter un pays</span>
+                        </a>
+                        <a class="dropdown-item waves-effect waves-light{% if app.request.attributes.get("_route") is same as ('newlocality') %} {% if typeActive is same as ('newlocality') %} active {% endif %} {% endif %}"  href="{{path('newlocality')}}">
+                            <i class="fas fa-plus mr-2 baseTextColor"></i> 
+                            <span> Ajouter une localité</span>
+                        </a>
+                        <a class="dropdown-item waves-effect waves-light{% if app.request.attributes.get("_route") is same as ('newcategorie') %} {% if typeActive is same as ('newcategorie') %} active {% endif %} {% endif %}"  href="{{path('newcategorie')}}">
+                            <i class="fas fa-plus mr-2 baseTextColor"></i> 
+                            <span> Ajouter une catégorie</span>
+                        </a>
+                        <a class="dropdown-item waves-effect waves-light{% if app.request.attributes.get("_route") is same as ('newdomaine') %} {% if typeActive is same as ('newdomaine') %} active {% endif %} {% endif %}"  href="{{path('newdomaine')}}">
+                            <i class="fas fa-plus mr-2 baseTextColor"></i> 
+                            <span> Ajouter un domaine</span>
+                        </a>
+                        <a class="dropdown-item waves-effect waves-light{% if app.request.attributes.get("_route") is same as ('listuser') or app.request.attributes.get("_route") is same as ('infos')  %} {% if typeActive is same as ('listuser') %} active {% endif %} {% endif %}"  href="{{path('listuser')}}">
+                            <i class="fas fa-list-alt mr-2 baseTextColor"></i>
+                            <span> Liste des Candidats & Recruteurs</span>  
+                        </a>
+                        
+                    </div>
+                </li> #}
+
+                {# <li class="nav-item {% if homeActive == 5 %} active {% endif %}">
+                    <a class="nav-link waves-effect baseTextColor" href="{{path('contact')}}"><i class="fas fa-envelope"></i>Contact</a>
+                </li> #}
+
+                <li class="nav-item dropdown notifications-nav {% if homeActive is same as ('profile') %} active {% endif %}">
+                    <a class="nav-link dropdown-toggle waves-effect baseTextColor" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-user"></i>  Profil
+                    </a>
+                    <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                        
+                        <a class="dropdown-item waves-effect waves-light {% if app.request.attributes.get("_route") is same as ('updatepassuser') %} {% if typeActive is same as ('updatepass') %} active {% endif %} {% endif %}" href="{{path('updatepassuser', {'id': app.user.id})}}">
+                            <i class="fas fa-lock mr-2 baseTextColor"></i>
+                            <span>Modifier mon mot de passe</span>  
+                        </a>
+                        <a class="dropdown-item waves-effect waves-light{% if app.request.attributes.get("_route") is same as ('updateuser') %} {% if typeActive is same as ('updateuser') %} active {% endif %} {% endif %}" href="{{path('updateuser', {'id': app.user.id})}}">
+                            <i class="fas fa-lock mr-2 baseTextColor"></i>
+                            <span>Modifier mes informations</span>  
+                        </a>
+                        <a class="dropdown-item waves-effect waves-light" href="{{path('app_logout')}}">
+                            <i class="fas fa-sign-out-alt mr-2 baseTextColor" aria-hidden="true"></i>
+                            <span>Déconnexion</span>
+                        </a>
+                    </div>
+                </li>
+
+                <li class="nav-item ">
+                    <form class="form-inline" method='post' action="{{path('search')}}">
+                        <div class="md-form my-0">
+                            <input class="baseTextColor" type="search" placeholder="Rechercher..." aria-label="Search" style="border-color:orange" name="field">
+                            <button class="btn btn-flat btn-floating baseBackColor baseTextColor btn-rounded btn-sm my-0 " type="submit"><i class="fas fa-search" aria-hidden="true"></i></button>
+                        </div>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<section class="animated container wow fadeIn slow" data-wow-delay="0.4s">
+    <div class="row justify-content-center">
+    <!-- Section heading -->
+        <h1 class="text-center my-5 h1 mt-3"></h1>
+    </div>
+    <!-- Section description -->
+   <div class="row mt-2 mb-0">
+        <div class="col-md-12">
+            <div id="mdb-lightbox-ui"></div>
+            <div class="mb-1">
+                <div class="container-fluid">
+                <div class="row blog ml-auto align-items-center justify-content-center">
+                    <div class="col-md-12 mx-auto" >
+                    <div id="blogCarousel" class="carousel slide" data-ride="carousel">
+
+                        <ol class="carousel-indicators">
+                            <li data-target="#blogCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#blogCarousel" data-slide-to="1"></li>
+                        </ol>
+
+                        <!-- Carousel items -->
+                        <div class="carousel-inner mx-auto" >
+
+                            <div class="carousel-item active">
+                                <div class="row">
+                                    {% for ads in ads | slice(0,4)  %}
+                                            <div class="col-md-3 h-25">
+                                                <a href="#">
+                                                    <img src="{{('assets/files/emploi/' ~ ads.img)}}" alt="Image" class="img-fluid">
+                                                </a>
+                                            </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <!--.item-->
+
+                        <div class="carousel-item">
+                            <div class="row">
+                                {% for ads in ads | slice(4,4)  %}
+                                        <div class="col-md-3 h-25">
+                                            <a href="#">
+                                                <img src="{{('assets/files/emploi/' ~ ads.img)}}" alt="Image" class="img-fluid">
+                                            </a>
+                                        </div>
+                                {% endfor %}
+                            </div>
+                            <!--.row-->
+                        </div>
+                        <!--.item-->
+
+                        </div>
+                        <!--.carousel-inner-->
+                    </div>
+                        <!--.Carousel-->
+
+                    </div>
+                </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="justify-content-center text-center col-sm-8 col-lg-12">
+        {% for message in app.flashes('success') %}
+        <div class="alert alert-success alert-dismissible fade show justify-content-center" role="alert">
+            <strong> {{ message }} </strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endfor %}
+        {% for message in app.flashes('error') %}
+        <div class="alert alert-danger alert-dismissible fade show justify-content-center" role="alert">
+            <strong> {{ message }} </strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+
+

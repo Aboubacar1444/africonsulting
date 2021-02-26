@@ -1,12 +1,117 @@
+
 <!DOCTYPE html>
-<html>
-    <head>
+<html lang='{{app.request.locale}}'>
+    <head>  
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <meta name="description" content="Emploi - AfriqueBaara">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="keywords" content="Emploi, Job, Mali, Afrique, Travail, Afriquebaara, Afriqueconsulting, malibaara, Recrutement, Orange job, Malitel">
+        <meta name="author" content="ABOUBACAR SIDIKI TOGOLA">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <link rel="icon" href="{{asset('assets/img/logo.jpeg')}}">
+        <title>{% block title %}AFRIQUEBAARA{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('https://fonts.googleapis.com/css?family=ABeeZee') }}">
+            <link rel="stylesheet" href="{{ asset('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700') }}">
+            <link rel="stylesheet" href="{{ asset('https://use.fontawesome.com/releases/v5.12.0/css/all.css') }}">
+            <link rel="stylesheet" href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('assets/fonts/fontawesome5-overrides.min.css?h=2c0fc24b3d3038317dc51c05339856d0') }}">  
+            <link rel="stylesheet" href="{{ asset('assets/css/mdb.min.css') }}">   
+            <link rel="stylesheet" href="{{ asset('assets/css/addons/datatables.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('assets/css/addons/datatables-select.min.css') }}">
+        {% endblock %}
+        {% block stylePerso %}
+            <style>
+                .baseTextColor{
+                    color:#fe8d01!important;
+                }
+                .baseBackColor{
+                    background:#18191d!important;
+                }
+            </style>
+        {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        <header>
+            {% block header %}
+                {% if is_granted('ROLE_USER') %}
+                    {% if is_granted('ROLE_ADMIN') %}
+                        {% include "base/headeradmin.html.twig" %}
+                    {% elseif is_granted('ROLE_MODERATOR') %}
+                        {% include "base/headermod.html.twig" %}
+                    {% elseif is_granted('ROLE_CANDIDAT') %}
+                        {% include "base/headercandidat.html.twig" %}
+                    {% elseif is_granted('ROLE_RECRUTEUR') %}
+                        {% include "base/headerrecruteur.html.twig" %}
+                    {% endif %}
+                {% else %}
+                    {% include "base/header.html.twig" %}
+                {% endif %}   
+            {% endblock %}
+        </header>
+        {% block body %} {% endblock %}
+       
+        {% block footer %}
+            {% include "base/footer.html.twig" %}
+        {% endblock %}
+        
+        {% block javascripts %}
+            <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js') }}"></script>
+            <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js') }}"></script>
+            <script src="{{ asset('node_modules/popper.js/dist/popper.min.js') }}"></script>
+            <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js') }}"></script>
+            <script src="{{ asset('https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js') }}"></script>
+            <script src="{{ asset('assets/js/mdb.min.js') }}"></script>
+            <script src="{{ asset('node_modules/holderjs/holder.min.js') }}"></script>
+            <script src="{{ asset('assets/js/vendor/tinymce/tinymce.min.js') }}"></script>
+            <script src="{{ asset('assets/js/modules/chart.js') }}"></script>
+            <script src="{{ asset('assets/js/addons/datatables.min.js') }}"></script>
+            <script src="{{ asset('assets/js/addons/datatables-select.min.js') }}"></script>
+
+            <script >
+                new WOW().init();
+                $(document).ready(function() {
+                    $('.selectpicker').selectpicker();
+                    $('.mdb-select').materialSelect();
+                    $('.datepicker').pickadate({
+                        monthsFull: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre',
+                        'Novembre', 'Décembre'],
+                        weekdaysShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
+                        today: 'aujourd\'hui',
+                        clear: 'effacer',
+                        formatSubmit: 'dd/mm/yyyy',
+                        selectYears:60
+                    });
+                    $('#blogCarousel').carousel({
+                        interval: 5000
+		            });
+
+                    var readURL = function(input) {
+                        if (input.files && input.files[0]) {
+                            var reader = new FileReader();
+                            reader.onload = function (e) {
+                            $('.profile-pic').attr('src', e.target.result);
+                            }
+                
+                            reader.readAsDataURL(input.files[0]);
+                        }
+                    }
+            
+
+                    $(".file-upload").on('change', function(){
+                        readURL(this);
+                    });
+                
+
+                });
+                    
+            </script>
+        {% endblock %}
+        {% block ScriptP %}
+            
+        {% endblock %}
     </body>
 </html>

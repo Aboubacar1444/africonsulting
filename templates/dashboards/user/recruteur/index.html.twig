@@ -1,0 +1,189 @@
+{% extends "base.html.twig" %}
+{% block title %}AFRIQUEBAARA - P.Recruteur{% endblock %}
+{% block body %}
+    <main>
+                     
+        <div id="showCandidat" class="justify-content-center card-body card-body-cascade text-center table-responsive card">
+            <h4 class='mb-1'>Liste des candidats</h4>
+            <table id="dtBasicExample" class="table col-auto">
+                <thead>
+                    <tr>
+                        <th class="th-sm">identifiant</th>  
+                        <th class="th-sm">Domaine</th>
+                        <th class="th-sm">Localité</th>
+                        <th class="th-sm">Infos</th>
+                    </tr>
+                </thead>
+            </table>
+        </div> 
+
+       
+         
+           
+                
+        
+        <div class="alert-warning" role="alert" id="noData" style="display:none;">
+            <h4 class="alert-heading text center">Statut</h4>
+            <p>Il n'y a pas encore de candidats.</p>
+        </div>  
+                      
+        
+                            
+          
+                
+        
+    </main>
+     
+{% endblock %}
+{% block ScriptP %}
+    <script>  
+        $(document).ready(function () {
+            tableOff=$('#dtBasicExample').DataTable({
+                ajax:{
+                    url:"{{path('listc')}}",
+                    dataSrc:'',
+                
+                },
+                "columns": 
+                [
+                    { data: 'id' },
+                    { data: 'domaine' },
+                    { data: 'localite'},
+                    
+                    { data: 'type',
+                        render: function(data, type, row, meta){
+                            pathTo="{{ path('infoscandidat',{'id':'tid', 'recruteur':app.user.id}) }}";
+                            finalPath=pathTo.replace('tid', row.id);
+                        
+                            if(data){
+                                return '<a class="btne btn btn-outline-success btn-sm" href="'+finalPath+'"  "role="button">'+'Voir plus'+'</a>';
+                                
+                            }
+                        
+                        },
+
+                    },
+                ],
+                "columnDefs": [
+                    {"className": "dt-center", "targets": "_all"}
+                ],
+                "bPaginate":true,
+                "bProcessing": true,
+                "responsive":true,
+                "pageLength": 5,
+
+
+            });
+
+            /*tableOn= $('#dt2').DataTable({
+                     ajax:{
+                        url:"{{path('listrecruteur')}}",
+                        dataSrc:'',
+                    
+                    },
+                    "columns": 
+                    [
+                        { data: 'img', 
+                            render: function(data){
+                                if(data){
+                                    return '<div class="testimonial-card td-sm" align="center">'+
+                                                    '<div class="avatar mt-auto mx-auto">'+ 
+                                                        '<img src="{{ asset("assets/files/user/" ) }}/' +data+'"class="profile-pic rounded-circle h-75 w-75" alt="First sample avatar image">'+  
+                                                    '</div>'+
+                                            '</div>'
+                                }else{
+                                    return '<div class="testimonial-card td-sm" align="center">'+
+                                                    '<div class="avatar mt-auto mx-auto">'+ 
+                                                        '<img src="https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png" class="profile-pic rounded-circle h-75 w-75" alt="First sample avatar image" name="photo">'+  
+                                                    '</div>'+
+                                            '</div>'
+                                }
+                            },
+                            defaultContent:'<img src="https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png" class="profile-pic rounded-circle h-75 w-75" alt="First sample avatar image" name="photo">'
+                        },
+                        { data: 'forename' },
+                        { data: 'name'},
+                        { data: 'domaine' },
+                        { data: 'localite' },
+                        { data: 'societyname' },
+                        { data: 'type',
+                        render: function(data, type, row, meta){
+                            pathTo="{{ path('infos',{'id':'tid'}) }}";
+                            finalPath=pathTo.replace('tid', row.id);
+                        
+                            if(data){
+                                return '<a class="btne btn btn-outline-success btn-sm" href="'+finalPath+'"  "role="button">'+'Voir plus'+'</a>';
+                                
+                            }
+                        
+                        },
+
+                    },
+                        
+                    ],
+                    "columnDefs": [
+                        {"className": "dt-center", "targets": "_all"}
+                    ],
+                    "bPaginate":true,
+                    "bProcessing": true,
+                    "responsive":true,
+                    "pageLength": 5,
+            });*/
+            
+            $('.dataTables_length').addClass('bs-select');
+            
+            var StopTableOff='';
+            var StopTableOn='';
+            
+            $('#dtBasicExample').on( 'draw.dt', function(){
+                if (! tableOff.data().any() ) {
+                    $('#noData').show('fast');
+                }
+            });
+
+            /* $('#dt2').on( 'draw.dt', function(){
+                if (! tableOn.data().any() ) {
+                    $('#noDatar').show('fast');
+                }
+            }); */
+            
+            
+            /*$('#Candidat').click(function(){
+                $(this).hide('fast');
+                     
+                if($('#showRecruteur').css('display',''))
+                {
+                    $('#showRecruteur').hide('fast');
+                    $('#showCandidat').show('fast');
+                    $('#Recruteur').show('fast');
+                    clearInterval(StopTableOn);
+                } 
+               
+                
+                $('#showCandidat').show('fast');
+                StopTableOff=setInterval(function(){
+                                tableOff.ajax.reload(null,false);
+                            }, 3000000);
+                
+            });
+
+            $('#Recruteur').click(function(){
+                 $(this).hide('fast');
+                
+                if($('#showCandidat').css('display',''))
+                {
+                    $('#showCandidat').hide('fast');
+                    $('#showRecruteur').show('fast');
+                    $('#Candidat').show('fast');
+                    clearInterval(StopTableOff);
+                } 
+                $('#showOnDemande').show('fast');
+                StopTableOn=setInterval(function(){
+                                tableOn.ajax.reload(null,false);
+                            }, 3000000);
+            });*/
+            
+            
+        });
+    </script>
+{% endblock %}

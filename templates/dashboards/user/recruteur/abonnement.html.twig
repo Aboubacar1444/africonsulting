@@ -1,0 +1,209 @@
+{% extends "base.html.twig" %}
+{% block title %}AFRIQUEBAARA - Abonnement{% endblock %}
+{% block body %}
+    <section class=" intro-2 rgba-gradient">
+      <div class="mask rgba-stylish-strong">
+        <div class="container h-100 d-flex justify-content-center align-items-center">
+
+          <!-- Section: Pricing v.3 -->
+          <section class="text-center my-5">
+
+                <!-- Section heading -->
+                <h1 class="my-5 h1 white-text">Nos Abonnements</h1>
+
+                <!-- Section description -->
+                <p class="mb-5 w-responsive mx-auto white-text">Abonnez-vous chez AFRIQUEBAARA selon vos moyens!</p>
+
+                <!-- Grid row -->
+                <div class="row">
+
+                    <!-- Grid column -->
+                    <div class="col-lg-4 col-md-12 mb-4">
+
+                        <!-- Card -->
+                        <div class="card hoverable rgba-black-light text-white">
+                            <div class="card-body">
+                                <h5>Baara Normal</h5>
+                                <div class="d-flex justify-content-center mt-3">
+                                    <div class="card-circle d-flex justify-content-center align-items-center">
+                                        <i class="fas fa-home"></i>
+                                    </div>
+                                </div>
+
+                                <h2 class="font-weight-bold my-3">20.000 FCFA</h2>
+                                <p class=" font-weight-bold text-center">2 semaines</p>
+                                <div class="list-group list-panel mb-3 ">
+                                    <a  class="list-group-item d-flex justify-content-between rgba-black-light text-white border-maroon">
+                                        Parcourir les informations de chaque candidat avec restrictions
+                                        <i class="fas fa-check ml-auto" data-toggle="tooltip" data-placement="top" title="" data-original-title="Click to fix"></i>
+                                    </a> 
+                                </div>
+                                <a class="btn btn-black-light btn-rounded waves-effect waves-light" href="{{path('suscribe',{'society': app.user.societyname, 'type':'Baara Normal'})}}">S'abonner</a>
+                            </div>
+                        </div>
+                        <!-- Card -->
+
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-lg-4 col-md-12 mb-4">
+
+                        <!-- Card -->
+                        <div class="card purple-gradient hoverable text-white">
+                            <div class="card-body">
+
+                                <h5>Baara Premium</h5>
+                                <div class="d-flex justify-content-center mt-3">
+                                    <div class="card-circle d-flex justify-content-center align-items-center">
+                                        <i class="fas fa-users white-text"></i>
+                                    </div>
+                                </div>
+
+                                <h2 class="font-weight-bold my-3">30.000 FCFA</h2>                               
+                                <p class=" font-weight-bold text-center">1 mois</p>
+                                <div class="list-group list-panel mb-3 ">
+                                    <a  class="list-group-item d-flex justify-content-between rgba-black-light text-white border-maroon">
+                                        Parcourir les informations de chaque candidat avec restrictions
+                                        <i class="fas fa-check ml-auto" data-toggle="tooltip" data-placement="top" title="" data-original-title="Click to fix"></i>
+                                    </a> 
+                                    <a  class="list-group-item d-flex justify-content-between rgba-black-light text-white border-maroon">
+                                            Ajout d'un appel d'offre
+                                        <i class="fas fa-check ml-auto" data-toggle="tooltip" data-placement="top" title="" data-original-title="Click to fix"></i>
+                                    </a> 
+                                </div>
+                                <a href="{{path('suscribe',{'society': app.user.societyname, 'type':'Baara Premium'})}}" class="btn btn-purple-gradient btn-rounded waves-effect waves-light">S'abonner</a>
+                            </div>
+                        </div>
+                        <!-- Card -->
+
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-lg-4 col-md-12 mb-4">
+
+                        <!-- Card -->
+                        <div class="card hoverable rgba-deep-purple-strong text-white">
+                            <div class="card-body">
+
+                                <h5>Baara Premium +</h5>
+                                <div class="d-flex justify-content-center mt-3">
+                                    <div class="card-circle d-flex justify-content-center align-items-center">
+                                        <i class="fas fa-chart-bar"></i>
+                                    </div>
+                                </div>
+
+                                <h2 class="font-weight-bold my-3">80.000 FCFA</h2>
+                                <p class=" font-weight-bold text-center">3 mois</p>
+                                <div class="list-group list-panel mb-3 ">
+                                    <a  class="list-group-item d-flex justify-content-between rgba-black-light text-white border-maroon">
+                                        Parcourir les informations de chaque candidat sans restrictions
+                                        <i class="fas fa-check ml-auto" data-toggle="tooltip" data-placement="top" title="" data-original-title="Click to fix"></i>
+                                    </a> 
+                                    <a  class="list-group-item d-flex justify-content-between rgba-black-light text-white border-maroon">
+                                            Ajout de trois appels d'offre
+                                        <i class="fas fa-check ml-auto" data-toggle="tooltip" data-placement="top" title="" data-original-title="Click to fix"></i>
+                                    </a> 
+                                </div>                                
+                                <a href="{{path('suscribe',{'society': app.user.societyname, 'type':'Baara Premium Plus'})}}" class="btn btn-deep-purple-strong btn-rounded waves-effect waves-light">S'abonner</a>
+
+                            </div>
+                        </div>
+                        <!-- Card -->
+
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-lg-6 col-md-12 mb-4">
+
+                        <!-- Card -->
+                        <div class="card hoverable aqua-gradient-rgba text-white">
+                            <div class="card-body">
+
+                                <h5>Baara Orium</h5>
+                                <div class="d-flex justify-content-center mt-3">
+                                    <div class="card-circle d-flex justify-content-center align-items-center">
+                                        <i class="fas fa-chart-bar"></i>
+                                    </div>
+                                </div>
+
+                                <h2 class="font-weight-bold my-3">150.000 FCFA</h2>
+                                <p class=" font-weight-bold text-center">6 mois</p>
+                                <div class="list-group list-panel mb-3 ">
+                                    <a  class="list-group-item d-flex justify-content-between rgba-black-light text-white border-maroon">
+                                        Parcourir les informations de chaque candidat
+                                        <i class="fas fa-check ml-auto" data-toggle="tooltip" data-placement="top" title="" data-original-title="Click to fix"></i>
+                                    </a> 
+                                    <a  class="list-group-item d-flex justify-content-between rgba-black-light text-white border-maroon">
+                                            Possibilité de télécharger les CV et autres documents avec restrictions
+                                        <i class="fas fa-check ml-auto" data-toggle="tooltip" data-placement="top" title="" data-original-title="Click to fix"></i>
+                                    </a> 
+                                    <a  class="list-group-item d-flex justify-content-between rgba-black-light text-white border-maroon">
+                                            Ajout de six appels d'offre
+                                        <i class="fas fa-check ml-auto" data-toggle="tooltip" data-placement="top" title="" data-original-title="Click to fix"></i>
+                                    </a> 
+                                </div>                            
+                                <a href="{{path('suscribe',{'society': app.user.societyname, 'type':'Baara Orium'})}}" class="btn btn-aqua-gradient-rgba btn-rounded waves-effect waves-light">S'abonner</a>
+
+                            </div>
+                        </div>
+                        <!-- Card -->
+
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-lg-6 col-md-12 mb-4">
+
+                        <!-- Card -->
+                        <div class="card hoverable text-white blue-gradient-rgba">
+                            <div class="card-body">
+
+                                <h5>Baara Orium +</h5>
+                                <div class="d-flex justify-content-center mt-3">
+                                    <div class="card-circle d-flex justify-content-center align-items-center">
+                                        <i class="fas fa-chart-bar"></i>
+                                    </div>
+                                </div>
+
+                                <h2 class="font-weight-bold my-3">300.000 FCFA</h2>
+                                <p class=" font-weight-bold text-center">1 an</p>
+                                <div class="list-group list-panel mb-3">
+                                    <a  class="list-group-item d-flex justify-content-between rgba-black-light text-white border-maroon">
+                                        Parcourir les informations de chaque candidat
+                                        <i class="fas fa-check ml-auto" data-toggle="tooltip" data-placement="top" title="" data-original-title="Click to fix"></i>
+                                    </a> 
+                                    <a  class="list-group-item  rgba-black-light text-white border-maroon">
+                                        <span class="mr-auto">Possibilité de télécharger les CV et autres documents sans restriction</span>
+                                        <i class="fas fa-check ml-auto" data-toggle="tooltip" data-placement="top" title="" data-original-title="Click to fix"></i>
+                                    </a> 
+                                    <a  class="list-group-item d-flex justify-content-between rgba-black-light text-white border-maroon">
+                                            Ajout de quinze appels d'offre
+                                        <i class="fas fa-check ml-auto" data-toggle="tooltip" data-placement="top" title="" data-original-title="Click to fix"></i>
+                                    </a> 
+                                    <a  class="list-group-item d-flex justify-content-between rgba-black-light text-white border-maroon">
+                                            Une publicité offerte gratuitement
+                                        <i class="fas fa-check ml-auto" data-toggle="tooltip" data-placement="top" title="" data-original-title="Click to fix"></i>
+                                    </a> 
+                                </div>    
+                                <a href="{{path('suscribe',{'society': app.user.societyname, 'type':'Baara Orium Plus'})}}" class="btn btn-blue-gradient-rgba btn-rounded waves-effect waves-light">S'abonner</a>
+                            </div>
+                        </div>
+                        <!-- Card -->
+
+                    </div>
+                    <!-- Grid column -->
+
+
+                </div>
+                <!-- Grid row -->
+
+          </section>
+          <!-- Section: Pricing v.3 -->
+
+        </div>
+      </div>
+    </section>
+{% endblock %}

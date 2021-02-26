@@ -1,0 +1,74 @@
+{% extends "base.html.twig" %}
+{% block header %}
+    
+{% endblock %}
+{% block title %}AFRIQUEBAARA{% endblock %}
+    {% block body %}
+        {%  if admindatas %}
+                <script>
+                    window.location.href="{{path('index')}}";
+                </script> 
+            {% else %}
+                <main>
+                    <div class="container">
+                        <div class="col-lg-4 col-md-12 mb-4 mt-4 mx-auto justify-content-center">
+                            <div class="card">
+                                <div class="card-body">
+                                    <form method="post">
+                                        <p class="h5 text-center mb-4">Création du compte administrateur</p>
+                        
+                                        <div class="md-form">
+                                        <i class="fas fa-envelope prefix grey-text"></i>
+                                        <input type="text" id="prenom" class="form-control" name="forename">
+                                        <label for="prenom">Prénom</label>
+                                        </div>
+                                        
+                                        <div class="md-form">
+                                        <i class="fas fa-envelope prefix grey-text"></i>
+                                        <input type="text" id="nom" class="form-control" name="name">
+                                        <label for="nom">Nom</label>
+                                        </div>
+                                        
+                                        <div class="md-form">
+                                        <i class="fas fa-envelope prefix grey-text"></i>
+                                        <input type="text" id="job" class="form-control" name="job">
+                                        <label for="job">Job</label>
+                                        </div>
+                
+                                        <div class="md-form">
+                                            <i class="fas fa-envelope prefix grey-text"></i>
+                                            <input type="email" id="email" class="form-control" name="email">
+                                            <label for="email">email</label>
+                                        </div>
+                
+                                        <div class="md-form">
+                                            <i class="fas fa-lock prefix grey-text"></i>
+                                            <input type="password" id="password" class="form-control" name="password">
+                                            <label for="password">Mot de passe</label>
+                                        </div>
+                                        {# <div class="md-form">
+                                            <i class="fas fa-lock prefix grey-text"></i>
+                                            <input type="text" id="password" class="form-control" name="password" value="{{api_token('user')}}">
+                                            <label for="password">Token</label>
+                                        </div> #}
+                                        <div class="md-form">
+                                            <select class="browser-default custom-select" name="type" id="type">
+                                                <option selected value="ROLE_ADMIN">Administrateur</option>
+                                            </select> 
+                                        </div>
+                                        
+                                        <div class="text-center mt-4">
+                                        <button class="btn btn-outline-blue waves-effect waves-light">Créer</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>  
+        {% endif %} 
+    {% endblock %}
+
+    {% block footer %}
+            
+    {% endblock %}

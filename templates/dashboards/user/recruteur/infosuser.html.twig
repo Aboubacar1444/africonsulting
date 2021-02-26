@@ -1,0 +1,227 @@
+{% extends "base.html.twig" %}
+{% block title %}AFRIQUEBAARA - P.Recruteur{% endblock %}
+{% block body %}
+    {% if abonnement %}
+        {% for a in abonnement %}
+            {% if a.isactive is same as ('Yes') %}
+                {% if a.type is same as ('Normal') or a.type is same as ('Premium') or a.type is same as ('PremiumPlus') %}
+                    <main class="card">
+                        <section class="my-5">
+                                <div class="container-fluid">
+                                    {# <form action="" method="post" enctype="multipart/form-data"> #}
+                                        <div class="container-fluid ">
+                                            <div class="row justify-content-center">
+                                                <div class="testimonial-card mt-md-3">
+                                                    <div class="avatar mx-auto white">
+                                                        {% if info.img  %}
+                                                                <img src="{{ asset('./assets/files/user/' ~ info.img) }}" class="profile-pic rounded-circle" alt="First sample avatar image">   
+                                                            {% else %}
+                                                                <img src="https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png" class="tform-pic rounded-circle" alt="First sample avatar image" name="photo">
+                                                        {% endif %}
+                                                        {# <input type="hidden" name="photo" value="{{  tform.photo }}"> #}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row justify-content-center">
+                                            <div class="col-lg-6 col-md-12">
+                                                <div class="md-form form-sm mb-0">
+                                                    <input type="text" id="name" class="form-control form-control-sm" name="scname" value="{{info.forename}}" readonly>
+                                                    <label for="" class="">Prénom</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-12">
+                                                <div class="md-form form-sm mb-0">
+                                                    <input type="text" id="name" class="form-control form-control-sm" name="scname" value="{{info.name}}" readonly>
+                                                    <label for="name" class="">Nom</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row justify-content-center">
+                                            <div class="col-lg-4 col-md-12">
+                                                <div class="md-form form-sm mb-0">
+                                                    <input type="text" id="sexe" class="form-control form-control-sm" name="sex" value="{{info.statutm}}" readonly>
+                                                    <label for="sexe" class="">Statut Matrimonial</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-12">
+                                                <div class="md-form form-sm mb-0">
+                                                    <input type="text" id="sexe" class="form-control form-control-sm" name="sex" value="{{info.sexe}}" readonly>
+                                                    <label for="sexe" class="">Sexe</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-12">
+                                                <div class="md-form form-sm mb-0">
+                                                    <input type="text" id="birth" class="form-control form-control-sm" name="birth" value="{{info.nationalie}}" readonly>
+                                                    <label for="birth" class="">Code Nationalité</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row justify-content-center">
+                                            <div class="col-lg-6 col-md-12">
+                                                <div class="md-form form-sm mb-0">
+                                                    <input type="text" id="father" class="form-control form-control-sm" name="fatherfullname" value="{{info.telnumber}}" readonly>
+                                                    <label for="father" class="">Numéro de téléphone</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-12">
+                                                <div class="md-form form-sm mb-0">
+                                                    <input type="text" id="mother" class="form-control form-control-sm" name="motherfullname" value="{{info.localite}}" readonly>
+                                                    <label for="mother" class="">Localité</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row justify-content-center">
+                                            <div class="col-lg-6 col-md-12">
+                                                <div class="md-form form-sm mb-0">
+                                                    <input type="text" id="aca" class="form-control form-control-sm" name="scacademie" value="{{info.domaine}}" readonly>
+                                                    <label for="aca" class="">Fonction</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-12">
+                                                <div class="md-form form-sm mb-0">
+                                                    <input type="text" id="etab" class="form-control form-control-sm" name="scetablissement" value="{{info.email}}" readonly>
+                                                    <label for="etab" class="">E-mail</label>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        
+                                        
+                                        
+                                            <div class="row"> 
+                                                
+                                                <div class="col-lg-12 col-md-12">
+                                                    {# <p class="h5 mb-4">{{file}}</p> #}
+                                                    <div class="embed-responsive embed-responsive z-depth-1-half map-container" style="height:800px;">
+                                                        <embed  class="embed-responsive-item" src="{{ asset('assets/files/user/' ~ info.cv) }}#view=fit&toolbar=0&navpanes=0&scrollbar=0" frameborder="0"
+                                                        style="border:0" allowfullscreen type='application/pdf'>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        
+                                    {# </form> #}
+                                </div>
+                        </section>  
+                    </main>
+                {% elseif a.type is same as ('Orium') or a.type is same as ('OriumPlus') %}
+                    <main class="card">
+                        <section class="my-5">
+                                <div class="container-fluid">
+                                    {# <form action="" method="post" enctype="multipart/form-data"> #}
+                                        <div class="container-fluid ">
+                                            <div class="row justify-content-center">
+                                                <div class="testimonial-card mt-md-3">
+                                                    <div class="avatar mx-auto white">
+                                                        {% if info.img  %}
+                                                                <img src="{{ asset('./assets/files/user/' ~ info.img) }}" class="profile-pic rounded-circle" alt="First sample avatar image">   
+                                                            {% else %}
+                                                                <img src="https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png" class="tform-pic rounded-circle" alt="First sample avatar image" name="photo">
+                                                        {% endif %}
+                                                        {# <input type="hidden" name="photo" value="{{  tform.photo }}"> #}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row justify-content-center">
+                                            <div class="col-lg-6 col-md-12">
+                                                <div class="md-form form-sm mb-0">
+                                                    <input type="text" id="name" class="form-control form-control-sm" name="scname" value="{{info.forename}}" readonly>
+                                                    <label for="" class="">Prénom</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-12">
+                                                <div class="md-form form-sm mb-0">
+                                                    <input type="text" id="name" class="form-control form-control-sm" name="scname" value="{{info.name}}" readonly>
+                                                    <label for="name" class="">Nom</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row justify-content-center">
+                                            <div class="col-lg-4 col-md-12">
+                                                <div class="md-form form-sm mb-0">
+                                                    <input type="text" id="sexe" class="form-control form-control-sm" name="sex" value="{{info.statutm}}" readonly>
+                                                    <label for="sexe" class="">Statut Matrimonial</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-12">
+                                                <div class="md-form form-sm mb-0">
+                                                    <input type="text" id="sexe" class="form-control form-control-sm" name="sex" value="{{info.sexe}}" readonly>
+                                                    <label for="sexe" class="">Sexe</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-12">
+                                                <div class="md-form form-sm mb-0">
+                                                    <input type="text" id="birth" class="form-control form-control-sm" name="birth" value="{{info.nationalie}}" readonly>
+                                                    <label for="birth" class="">Code Nationalité</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row justify-content-center">
+                                            <div class="col-lg-6 col-md-12">
+                                                <div class="md-form form-sm mb-0">
+                                                    <input type="text" id="father" class="form-control form-control-sm" name="fatherfullname" value="{{info.telnumber}}" readonly>
+                                                    <label for="father" class="">Numéro de téléphone</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-12">
+                                                <div class="md-form form-sm mb-0">
+                                                    <input type="text" id="mother" class="form-control form-control-sm" name="motherfullname" value="{{info.localite}}" readonly>
+                                                    <label for="mother" class="">Localité</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row justify-content-center">
+                                            <div class="col-lg-6 col-md-12">
+                                                <div class="md-form form-sm mb-0">
+                                                    <input type="text" id="aca" class="form-control form-control-sm" name="scacademie" value="{{info.domaine}}" readonly>
+                                                    <label for="aca" class="">Fonction</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-12">
+                                                <div class="md-form form-sm mb-0">
+                                                    <input type="text" id="etab" class="form-control form-control-sm" name="scetablissement" value="{{info.email}}" readonly>
+                                                    <label for="etab" class="">E-mail</label>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        
+                                        
+                                        
+                                            <div class="row"> 
+                                                
+                                                <div class="col-lg-12 col-md-12">
+                                                    {# <p class="h5 mb-4">{{file}}</p> #}
+                                                    <div class="embed-responsive embed-responsive z-depth-1-half map-container" style="height:800px;">
+                                                        <embed  class="embed-responsive-item" src="{{ asset('assets/files/user/' ~ info.cv) }}#view=fit" frameborder="0"
+                                                        style="border:0" allowfullscreen type='application/pdf'>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        
+                                    {# </form> #}
+                                </div>
+                        </section>  
+                    </main>
+                {% endif %}
+            {% else %}
+                <script> 
+                    window.location.href='{{ path("abonnement",{"id":app.user.id}) }}';
+                </script>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <script> 
+           window.location.href='{{ path("abonnement",{"id":app.user.id}) }}';
+        </script>
+    {% endif %}
+{% endblock %}

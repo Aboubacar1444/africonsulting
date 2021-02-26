@@ -1,0 +1,152 @@
+{% extends "base.html.twig" %}
+{% block title %}AFRIQUEBAARA - {{emploi.title}} {% endblock %}
+{% block body %}
+    <main>
+
+        <div class="container-fluid mt-md-5 mt-5 mb-5">
+            <!-- Grid row -->
+            <div class="row" style="margin-top: -45px;">
+
+                <!-- Grid column -->
+                <div class="col-md-12 px-lg-5">
+                    <!-- Card -->
+                    <div class="card pb-5 mx-md-3">
+                        <div class="card-body">
+
+                            <div class="container">
+
+                                <!-- Section heading -->
+                                <h1 class="text-center h1 pt-4 mb-3">
+                                <strong>{{emploi.title}}</strong>
+                                </h1>
+
+                                <div class="row">
+                                   
+                                    <!--Featured image-->
+                                        <div class="view overlay z-depth-1 w-25 h-25 ml-auto mr-auto mb-4">
+                                            <img src="{{asset('./assets/files/emploi/'~ emploi.img)}}" class="img-fluid ml-auto mr-auto" alt="First sample image">
+                                            <div class="mask rgba-white-slight"></div>
+                                        </div>
+                                    
+                                    <div class="col-md-12 col-xl-12 d-flex justify-content-center">
+                                        
+                                        <p class="font-small dark-grey-text mb-1">
+                                        <strong>Auteur:</strong> {{emploi.societyname}}</p>
+                                        <p class="font-small grey-text mb-0 ml-3">
+                                        <i class="fas fa-clock-o dark-grey-text"></i> Date limite: {{emploi.datelimit}}</p>
+                                        <p class="font-small grey-text mb-0 ml-3">
+                                        <i class="fas fa-location-arrow dark-grey-text"></i> Localité: {{emploi.pays}} - {{emploi.localite}}</p>
+                                        <p class="font-small grey-text mb-0 ml-3">
+                                        <i class="fas fa-file-contract dark-grey-text"></i> Type de contrat: {{emploi.contrat}}</p>
+                                    </div>
+                                </div>
+
+                                <!-- Grid row -->
+                                <div class="row pt-lg-5 pt-3">
+
+                                <!-- Grid column -->
+                                <div class="col-md-12 col-xl-12">
+                                    
+
+                                    <!-- Grid row -->
+                                    <div class="row mt-3 text-center justify-content-center">
+                                        <h4 class="font-weight-bold mb-4">
+                                        <strong>Mission</strong>
+                                        </h4>
+                                        
+                                    
+                                    </div>
+                                    <div class="row mt-3 text-center justify-content-center">
+                                        <p class="dark-grey-text article">
+                                            {{emploi.mission}}
+                                        </p>
+                                    </div>
+                                    <!-- Grid row -->
+
+                                    <!-- Grid row -->
+                                    {% if emploi.formation %}
+                                    <div class="row mt-3 text-center justify-content-center">
+                                        <h4 class="font-weight-bold mb-4">
+                                        <strong>Formation(s) souhaitée(s)</strong>
+                                        </h4>
+                                        
+                                    
+                                    </div>
+                                    <div class="row mt-3 text-center justify-content-center">
+                                        <p class="dark-grey-text article">
+                                            {{emploi.formation}}
+                                        </p>
+                                    </div>
+                                    {% endif %}
+                                    {% if emploi.experience %}
+                                    <div class="row mt-3 text-center justify-content-center">
+                                        <h4 class="font-weight-bold mb-4">
+                                        <strong>Expérience(s) souhaitée(s)</strong>
+                                        </h4>
+                                        
+                                    
+                                    </div>
+                                    <div class="row mt-3 text-center justify-content-center">
+                                        <p class="dark-grey-text article">
+                                            {{emploi.experience}}
+                                        </p>
+                                    </div>
+                                    {% endif %}
+                                    {% if emploi.competence %}
+                                    <div class="row mt-3  text-center justify-content-center">
+                                        <h4 class="font-weight-bold mb-4">
+                                        <strong>Compétence(s) souhaitée(s)</strong>
+                                        </h4>
+                                        
+                                    
+                                    </div>
+                                    <div class="row mt-3 text-center justify-content-center">
+                                        <p class="dark-grey-text article">
+                                            {{emploi.competence}}
+                                        </p>
+                                    </div>
+                                    {% endif %}
+                                    
+                                        <div class="row mt-3 text-center justify-content-center">
+                                            {% if is_granted('ROLE_CANDIDAT') %}
+                                                {% if emploi.extlink %}
+                                                    <a name="" id="" target='_blank' class="btn btn-primary btn-rounded" href="{{extlink}}" role="button">Candidater</a>
+                                                {% else %}
+                                                    {% if app.user.id is defined %}
+                                                            <a name="" id="" class="btn btn-primary btn-rounded" href="{{path('candidature',{'emploi':emploi.id, 'candidate': app.user.id})}}" role="button">Candidater</a> 
+                                                    {% endif %}
+                                                {% endif %}
+                                            {% elseif is_granted('ROLE_RECRUTEUR') %}
+                                            {% elseif is_granted('ROLE_MODERATOR') %}
+                                            {% else %}
+                                                <p class="grey-text-5 text-body">
+                                                    <a href="{{path('signin')}}"><span class="badge badge-pill badge-primary ">Je candidate</span></a>
+                                                </p>
+                                            {% endif %}
+                                        </div>
+                                    
+                                    
+                                   
+                                   
+                                </div>
+                                <!-- Grid column -->
+
+                                </div>
+                                <!-- Grid row -->
+
+                            </div>
+                            <!-- Grid column -->
+
+                        </div>
+                        <!-- Grid row -->
+
+                    </div>
+                    <!-- Card -->
+                </div>
+                <!-- Grid column -->
+            </div>
+            <!-- Grid row -->
+        </div>
+
+    </main>
+{% endblock %}

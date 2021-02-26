@@ -1,0 +1,474 @@
+{% extends "base.html.twig" %}
+{% block title %}AFRIQUEBAARA - Profil{% endblock %}
+
+{% block body %}
+
+
+    
+  {% if app.user.id == profile.id  and app.user.email == profile.email %}
+    <main>
+      {% if profile.type is same as ('Candidat') %}
+        <form method="post" enctype="multipart/form-data">
+          <div class="container-fluid">
+
+            <!-- Section: Team v.1 -->
+            <section class="section team-section">
+
+              <!-- Grid row -->
+              <div class="row text-center">
+
+                <!-- Grid column -->
+                <div class="col-md-8 mb-4">
+
+                  <!-- Card -->
+                  <div class="card card-cascade cascading-admin-card user-card">
+
+                    <!-- Card Data -->
+                    <div class="admin-up d-flex justify-content-start">
+                      <i class="fas fa-users info-color py-4 mr-3 z-depth-2"></i>
+                      <div class="data">
+                        <h5 class="font-weight-bold dark-grey-text">Edition - <span class="text-muted">Mise à jour du profil</span></h5>
+                      </div>
+                        <a class="btn btn-warning btn-sm text-center ml-auto col-md-3" href="{{ path('index') }}" role="button">Annuler</a>
+                    </div>
+                    <!-- Card Data -->
+                  
+                    <!-- Card content -->
+                    <div class="card-body card-body-cascade">
+                          <h5 class="font-weight-bold dark-grey-text">Informations</h5>
+                      <!-- Grid row -->
+                      <div class="row">
+
+                        <!-- Grid column -->
+                        <div class="col-lg-4">
+
+                          <div class="md-form form-sm mb-0">
+                          
+                            <input type="text" id="form12" class="form-control form-control-sm" name="forename" value="{{profile.forename}}" required>
+                            <label for="form12" class="">Prénom</label>
+                          </div>
+
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div class="col-lg-4">
+
+                          <div class="md-form form-sm mb-0">
+                            <input type="text" id="form3" class="form-control form-control-sm" name="name" value="{{profile.name}}" required>
+                            <label for="form3" class="">Nom</label>
+                          </div>
+
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div class="col-lg-4">
+
+                          <div class="md-form form-sm mb-0">
+                            <input type="text" id="form4" class="form-control form-control-sm" disabled="" value="{{profile.email}}" required>
+                            <label for="form4" class="disabled">adresse e-mail</label>
+                          </div>
+
+                        </div>
+                        <!-- Grid column -->
+
+                      </div>
+                      <!-- Grid row -->
+                
+                      <!-- Grid row -->
+                      <div class="row">
+
+                        <!-- Grid column -->
+                        <div class="col-md-12">
+
+                          <div class="md-form form-sm mb-0">
+                              <select class="selectpicker" name="localite" id="localite" data-live-search="true" required>
+                                <option readonly selected value="{{profile.localite.id}}">{{profile.localite}}</option>
+                                {% for localite in localite %}
+                                    <option value="{{localite.id}}">{{localite.name}}</option>
+                                {% endfor %}   
+                              </select> 
+                              <label for="pays" class="disabled">Localité</label>
+                          </div>
+
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div class="col-md-12">
+                          <div class="md-form form-sm mb-0">
+                              <select class="selectpicker" name="domaine" id="domaine" data-live-search="true" required>
+                                  <option readonly selected value="{{profile.domaine.id}}">{{profile.domaine}}</option>
+                                  {% for domaine in domaine %}
+                                          <option value="{{domaine.id}}">{{domaine.name}}</option>
+                                  {% endfor %}
+                              </select> 
+                              <label for="localite" class="disabled">Domaine d'activité</label>
+                          </div>
+                        </div>
+                      
+                        <!-- Grid column -->
+
+                      </div>
+                      
+                      <!-- Grid row -->
+                      {# <div class="row">
+
+                        <!-- Grid column -->
+                        <div class="col-md-4">
+
+                          <div class="md-form form-sm mb-0">
+                            <input type="text" id="form5" class="form-control form-control-sm" name="studentMatricule" value="{{profile.matricule}}" required>
+                            <label for="form5" class="" >N° matricule</label>
+                          </div>
+
+                        </div>
+                        
+                        
+                        <div class="col-md-8">
+                        <select class="mdb-select md-form" name="studentClassroom" id="classe" required>
+                                      <option readonly selected value="{{profile.classroom.id}}">{{profile.classroom}}</option>
+                                  {% for classe in classes %}
+                                      <option value="{{classe.id}}">{{classe.number}}</option>
+                                  {% endfor %}   
+                          </select> 
+                          <label for="classe" class="" >Classe fréquentée</label>
+                        </div>
+                        <!-- Grid column -->
+
+                      </div> #}
+                      <!-- Grid row -->
+                      <div class="mx-auto">
+                          <span class="text-muted text-center">Sexe</span>
+                      </div>
+                      {% set val = "checked" %}
+                      <div class="row">
+                        <div class="mr-auto mx-auto">
+                              <div class="custom-control custom-radio md-form form-sm mb-0">
+                                <input type="radio" class="custom-control-input" id="homme" name="sexe" {% if profile.sexe == "Homme" %} {{val}} {% endif %} value="Homme">
+                                <label class="custom-control-label" for="homme">Masculin</label>
+                              </div>
+                        </div>
+                        <div class="ml-auto mx-auto">
+                            <div class="custom-control custom-radio md-form form-sm mb-0">
+                                <input type="radio" class="custom-control-input" id="femme" name="sexe" {% if profile.sexe == "Femme" %} {{val}} {% endif %} value="Femme">
+                                <label class="custom-control-label" for="femme">Féminin</label>
+                            </div>
+                        </div> 
+                      </div>
+                      <div class="row md-form">
+                        <div class="file-field col-md-12">
+                            <div class="btn btn-primary btn-sm float-left">
+                              <span>Mettez à jour votre CV - PDF</span>
+                              <input type="file" name="cv">
+                            </div>
+                            <div class="file-path-wrapper">
+                              <input class="file-path validate" type="text" placeholder="Vous pouvez laisser ce champ vide.">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="md-form form-sm mb-0">
+                            <input type="text" id="telnumber" class="form-control form-control-sm" name="telnumber" value="{{profile.telnumber}}" required>
+                            <label for="telnumber" class="">Numéro de téléphone</label>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                    
+
+                  </div>
+                
+
+                </div>
+                
+                <div class="col-md-4 mb-4">
+
+                
+                  <div class="card profile-card">
+
+                    <!-- Avatar -->
+                    <div class="avatar z-depth-1-half mb-4">
+                    {% if profile.img  %}
+                        <img src="{{ asset('assets/img/student/' ~ profile.img) }}" class="profile-pic rounded-circle" alt="First sample avatar image">   
+                      {% else %}
+                          <img src="https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png" class="profile-pic rounded-circle" alt="First sample avatar image">
+                    {% endif %}
+                      
+                    </div>
+
+                    <div class="card-body pt-0 mt-0 md-form">
+
+                      <!-- Name -->
+                      <h3 class="mb-3 font-weight-bold"><strong>{{profile.forename}} {{profile.name}}</strong></h3>
+                      {#  #}
+                          <div class="file-field md-form">
+                              <div class="btn btn-primary btn-sm float-left">
+                              <span>Photo</span>
+                              <input type="file" accept="image/*" class="file-upload" name="img" value="{{profile.img}}">
+                              </div>
+                              <div class="file-path-wrapper">
+                              <input class="file-path validate" type="text" placeholder="Photo de profil" value="{{profile.img}}" readonly>
+                              </div>
+                          </div>
+                      {#  #}
+                    </div>
+                  </div>
+                  <!-- Card -->
+
+                </div>
+                <!-- Grid column -->
+
+              </div>
+              <!-- Grid row -->
+              <input type="hidden" name="csrf_token" value="{{ csrf_token('profile') }}">
+              <div class="md-form  justify-content-center text-center">
+                  <button class="btn blue-gradient" type="submit">Valider</button>
+              </div>
+            </section>
+            <!-- Section: Team v.1 -->
+          </div>
+        </form>
+      {% else %}
+        <form method="post" enctype="multipart/form-data">
+          <div class="container-fluid">
+
+            <!-- Section: Team v.1 -->
+            <section class="section team-section">
+
+              <!-- Grid row -->
+              <div class="row text-center">
+
+                <!-- Grid column -->
+                <div class="col-md-8 mb-4">
+
+                  <!-- Card -->
+                  <div class="card card-cascade cascading-admin-card user-card">
+
+                    <!-- Card Data -->
+                    <div class="admin-up d-flex justify-content-start">
+                      <i class="fas fa-users info-color py-4 mr-3 z-depth-2"></i>
+                      <div class="data">
+                        <h5 class="font-weight-bold dark-grey-text">Edition - <span class="text-muted">Mise à jour du profil</span></h5>
+                      </div>
+                        <a class="btn btn-warning btn-sm text-center ml-auto col-md-3" href="{{ path('index') }}" role="button">Annuler</a>
+                    </div>
+                    <!-- Card Data -->
+                  
+                    <!-- Card content -->
+                    <div class="card-body card-body-cascade">
+                          <h5 class="font-weight-bold dark-grey-text">Informations</h5>
+                      <!-- Grid row -->
+                      <div class="row">
+
+                        <!-- Grid column -->
+                        <div class="col-lg-4">
+
+                          <div class="md-form form-sm mb-0">
+                          
+                            <input type="text" id="form12" class="form-control form-control-sm" name="forename" value="{{profile.forename}}" required>
+                            <label for="form12" class="">Prénom</label>
+                          </div>
+
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div class="col-lg-4">
+
+                          <div class="md-form form-sm mb-0">
+                            <input type="text" id="form3" class="form-control form-control-sm" name="name" value="{{profile.name}}" required>
+                            <label for="form3" class="">Nom</label>
+                          </div>
+
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div class="col-lg-4">
+
+                          <div class="md-form form-sm mb-0">
+                            <input type="text" id="form4" class="form-control form-control-sm" disabled="" value="{{profile.email}}" required>
+                            <label for="form4" class="disabled">adresse e-mail</label>
+                          </div>
+
+                        </div>
+                        <!-- Grid column -->
+
+                      </div>
+                      <!-- Grid row -->
+                
+                      <!-- Grid row -->
+                      <div class="row">
+
+                        <!-- Grid column -->
+                        <div class="col-md-12">
+
+                          <div class="md-form form-sm mb-0">
+                              <select class="selectpicker" name="localite" id="localite" data-live-search="true" required>
+                                <option readonly selected value="{{profile.localite.id}}">{{profile.localite}}</option>
+                                {% for localite in localite %}
+                                    <option value="{{localite.id}}">{{localite.name}}</option>
+                                {% endfor %}   
+                              </select> 
+                              <label for="pays" class="disabled">Localité</label>
+                          </div>
+
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div class="col-md-12">
+                          <div class="md-form form-sm mb-0">
+                              <select class="selectpicker" name="domaine" id="domaine" data-live-search="true" required>
+                                  <option readonly selected value="{{profile.domaine.id}}">{{profile.domaine}}</option>
+                                  {% for domaine in domaine %}
+                                          <option value="{{domaine.id}}">{{domaine.name}}</option>
+                                  {% endfor %}
+                              </select> 
+                              <label for="localite" class="disabled">Domaine d'activité</label>
+                          </div>
+                        </div>
+                      
+                        <!-- Grid column -->
+
+                      </div>
+                      
+                      <!-- Grid row -->
+                      {# <div class="row">
+
+                        <!-- Grid column -->
+                        <div class="col-md-4">
+
+                          <div class="md-form form-sm mb-0">
+                            <input type="text" id="form5" class="form-control form-control-sm" name="studentMatricule" value="{{profile.matricule}}" required>
+                            <label for="form5" class="" >N° matricule</label>
+                          </div>
+
+                        </div>
+                        
+                        
+                        <div class="col-md-8">
+                        <select class="mdb-select md-form" name="studentClassroom" id="classe" required>
+                                      <option readonly selected value="{{profile.classroom.id}}">{{profile.classroom}}</option>
+                                  {% for classe in classes %}
+                                      <option value="{{classe.id}}">{{classe.number}}</option>
+                                  {% endfor %}   
+                          </select> 
+                          <label for="classe" class="" >Classe fréquentée</label>
+                        </div>
+                        <!-- Grid column -->
+
+                      </div> #}
+                      <!-- Grid row -->
+                      <div class="mx-auto">
+                          <span class="text-muted text-center">Sexe</span>
+                      </div>
+                      {% set val = "checked" %}
+                      <div class="row">
+                        <div class="mr-auto mx-auto">
+                              <div class="custom-control custom-radio md-form form-sm mb-0">
+                                <input type="radio" class="custom-control-input" id="homme" name="sexe" {% if profile.sexe == "Homme" %} {{val}} {% endif %} value="Homme">
+                                <label class="custom-control-label" for="homme">Masculin</label>
+                              </div>
+                        </div>
+                        <div class="ml-auto mx-auto">
+                            <div class="custom-control custom-radio md-form form-sm mb-0">
+                                <input type="radio" class="custom-control-input" id="femme" name="sexe" {% if profile.sexe == "Femme" %} {{val}} {% endif %} value="Femme">
+                                <label class="custom-control-label" for="femme">Féminin</label>
+                            </div>
+                        </div> 
+                      </div>
+                      <div class="row md-form">
+                        <div class="col-md-6">
+                          <div class="md-form form-sm mb-0">
+                            <input type="text" id="societe" class="form-control form-control-sm" name="societyname" value="{{profile.societyname}}" required>
+                            <label for="societe" class="">Société</label>
+                          </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                          <div class="md-form form-sm mb-0">
+                            <input type="text" id="telnumber" class="form-control form-control-sm" name="telnumber" value="{{profile.telnumber}}" required>
+                            <label for="telnumber" class="">Numéro de téléphone</label>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                    
+
+                  </div>
+                
+
+                </div>
+                
+                <div class="col-md-4 mb-4">
+
+                
+                  <div class="card profile-card">
+
+                    <!-- Avatar -->
+                    <div class="avatar z-depth-1-half mb-4">
+                    {% if profile.img  %}
+                        <img src="{{ asset('assets/files/user/' ~ profile.img) }}" class="profile-pic rounded-circle" alt="First sample avatar image">   
+                      {% else %}
+                          <img src="https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png" class="profile-pic rounded-circle" alt="First sample avatar image">
+                    {% endif %}
+                      
+                    </div>
+
+                    <div class="card-body pt-0 mt-0 md-form">
+
+                      <!-- Name -->
+                      <h3 class="mb-3 font-weight-bold"><strong>{{profile.forename}} {{profile.name}}</strong></h3>
+                      {#  #}
+                          <div class="file-field md-form">
+                              <div class="btn btn-primary btn-sm float-left">
+                                <span>Logo</span>
+                                <input type="file" accept="image/*" class="file-upload" name="img" value="{{profile.img}}" required>
+                              </div>
+                              <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text" placeholder="Logo de profil" value="{{profile.img}}" readonly>
+                              </div>
+                          </div>
+                      {#  #}
+                    </div>
+                  </div>
+                  <!-- Card -->
+
+                </div>
+                <!-- Grid column -->
+
+              </div>
+              <!-- Grid row -->
+              <input type="hidden" name="csrf_token" value="{{ csrf_token('profile') }}">
+              <div class="md-form  justify-content-center text-center">
+                  <button class="btn blue-gradient" type="submit">Valider</button>
+              </div>
+            </section>
+            <!-- Section: Team v.1 -->
+          </div>
+        </form>
+      {% endif %} 
+    </main>
+ {% else %}
+      <script>
+        
+        window.location.href='{{path("updateuser", {"id":'+'})}}'+{{app.user.id}};
+      </script>
+  {% endif %}
+{% endblock %}
+{% block ScriptP %}
+    <script>
+        $(document).ready(function () { 
+       
+          
+        });
+       
+        
+    </script>
+ 
+    
+{% endblock %}

@@ -1,0 +1,135 @@
+{% extends "base.html.twig" %}
+{% block title %}AFRIQUEBAARA{% endblock %}
+    {% block body %}
+        <main>
+            <div class="container">
+                <div class="col-lg-4 col-md-12 mb-4 mt-4 mx-auto justify-content-center">
+                    <div class="card">
+                        <div class="card-body">
+                            <form method="post">
+                                <p class="h5 text-center mb-4">Création de compte d'agent</p>
+                
+                                <div class="md-form">
+                                <i class="fas fa-envelope prefix grey-text"></i>
+                                <input type="text" id="prenom" class="form-control" name="forename">
+                                <label for="prenom">Prénom</label>
+                                </div>
+                                
+                                <div class="md-form">
+                                <i class="fas fa-envelope prefix grey-text"></i>
+                                <input type="text" id="nom" class="form-control" name="name">
+                                <label for="nom">Nom</label>
+                                </div>
+                                
+                                <div class="md-form">
+                                <i class="fas fa-envelope prefix grey-text"></i>
+                                <input type="text" id="job" class="form-control" name="job">
+                                <label for="job">Job</label>
+                                </div>
+        
+                                <div class="md-form">
+                                    <i class="fas fa-envelope prefix grey-text"></i>
+                                    <input type="email" id="email" class="form-control" name="email">
+                                    <label for="email">email</label>
+                                </div>
+        
+                                <div class="md-form">
+                                <i class="fas fa-lock prefix grey-text"></i>
+                                <input type="password" id="password" class="form-control" name="password">
+                                <label for="password">Mot de passe</label>
+                                </div>
+                                <div class="md-form">
+                                    <select class="browser-default custom-select" name="type" id="type">
+                                        <option  selected >Selectionnez un type</option>
+                                        <option  value="ROLE_MODERATOR">Administrateur - M</option>
+                                    </select> 
+                                </div>
+                                
+                                <div class="md-form show" style="display:none;">
+                                    <select class="md-form selectpicker col-md-12" name="pays" id="pays" data-live-search="true">
+                                        <option disabled selected>Selectionnez un Pays</option>
+                                        {% for pays in pays %}
+                                            <option value="{{pays.id}}">{{pays.name}}</option>
+                                        {% endfor %}   
+                                    </select> 
+                                </div>
+
+                                <div class="md-form show" style="display:none;">
+                                    <select class="md-form selectpicker col-md-12" name="localite" id="localite" data-live-search="true" title="Selectionnez une localité">
+                                        <option disabled selected>Selectionnez une Localité</option>
+                                    </select> 
+                                </div>
+                                
+                                <div class="text-center mt-4">
+                                <button class="btn btn-outline-blue waves-effect waves-light">Créer</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>  
+              
+    {% endblock %}
+    {% block footer %}
+        
+    {% endblock %}
+{% block ScriptP %}
+    <script>
+       $(document).ready(function () { 
+
+           /**************************************************************************************/
+
+           
+           $('#type').change(function(){
+            var type = $(this).val();
+             if(type=="ROLE_MODERATOR"){
+               //console.log(type);
+                $('.show').show( "fast" );
+             }else
+                $('.show').hide( "fast" );
+        });
+
+           $('#pays').change(function(){
+               var pays = $(this).val();
+               //console.log(student_localite);
+
+               if(pays != "")
+               {
+                   $.ajax({
+                       method: 'GET',
+                       url: '{{path("getLocalite", {"id":'+'})}}'+pays,
+                       //async: false,
+                       dataType: 'json',
+                       success: function(response){
+                           //console.log(response);
+                           if(response)
+                           {
+                                var acc = '';
+                                for(var i=0; i<response.length; i++)
+                                {
+                                    acc += '<option value="'+response[i].id+'">'+response[i].name+'</option>';
+                                }
+                               //var petit = '<option>'+"petit.jpeg"+'</option>';
+                                $('#localite').empty();
+                                $('#localite').html(acc);
+                                $('#localite').selectpicker('refresh');
+                           }
+                       },
+                       error: function(error){
+                           console.log(error);
+                       }
+
+                   });
+               }
+           });
+
+
+
+       
+          
+        });
+       
+        
+    </script>
+{% endblock %}

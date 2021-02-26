@@ -1,0 +1,80 @@
+{% extends "base.html.twig" %}
+{% block title %}AFRIQUEBAARA - Abonnement{% endblock %}
+{% block body %}
+    <div class="container">
+        
+        <div class="row justify-content-center text-center">
+            <div class="col-md-12 text-center">
+                <h3 class="h3 baseTextColor"> <i class="fas fa-suitcase"></i>  {{type}}</h3>
+            </div>
+            
+            <hr>
+            <div class="col-md-12">
+                <form method="post" id="payForm">
+                    <div class="md-form col-md-6 mx-auto">
+                        <select class="mdb-select" name="cashtype" id="cashtype" placeholder="">
+                            <option disabled selected>Selectionnez votre méthode de paiment</option>
+                            <option value="Orange Money">Orange Money</option>
+                            <option value="Virement Bancaire">Virement Bancaire</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn rgba-deep-orange-strong btn-rounded" id ="import">Je m'abonne</button>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+    <div class="col-lg-12 col-md-12 mx-auto">
+                <!--Buttons -->
+                <div id="message" class="row  justify-content-center col-md-12" style="display:none;">
+                    <div class="col-md-12 alert alert-success">
+                        <p> Votre demande d'abonnement "{{type}}", a bien été enregistrée. 
+                            Veuillez faire un dépôt sur ce numéro : <span class="font-weight-bold"> 78 47 93 73</span>. <br>
+                            Un responsable prendra contact avec vous dans un delais bref, Merci pour votre confiance!</p>
+                    </div>
+                </div>
+                <div id="messagev" class="row  justify-content-center" style="display:none;">
+                    <div class="col-md-12 alert alert-success">
+                        <p> Votre demande d'abonnement " {{type}} " a bien été enregistrée. 
+                            Veuillez faire un virement bancaire sur ce numéro de compte : <span class="font-weight-bold"> 00400095687</span>. <br>
+                            Un responsable prendra contact avec vous dans un delais bref, Merci pour votre confiance!</p>
+                    </div>
+                </div>
+    </div>
+{% endblock %}
+{% block ScriptP %}
+    <script>
+        $(document).ready(function(){
+            $('#payForm').on('submit', function(event){
+                event.preventDefault();
+                $.ajax({
+                    url:" {{ path('suscribe', {'society': society, 'type': type}) }}",
+                    method:"POST",
+                    data:new FormData(this),
+                    contentType:false,
+                    cache:false,
+                    processData:false,
+                    beforeSend:function(){
+                        $('#import').attr('disabled', 'disabled');
+                        $('#import').text('En cours...');
+                    },
+                    success:function(response)
+                    {
+                        
+                        $('#payForm').trigger("reset");
+                        $('#payForm').hide("fast");
+                        $('#import').attr('disabled', false);
+                        if(response == "Orange Money"){
+                            $('#message').css('display', '');
+                        }else 
+                            $('#messagev').css('display', '');
+                        
+                        $('#import').text('OK');
+                    }
+                })
+                
+            });   
+        });
+
+    </script>
+{% endblock %}

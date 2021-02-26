@@ -1,0 +1,206 @@
+
+<hr>
+<section class="animated container wow fadeIn slow" data-wow-delay="0.4s">
+    <div class="row justify-content-center">
+    <!-- Section heading -->
+        <h1 class="text-center my-5 h1 mt-3">Ils nous font confiance</h1>
+    </div>
+    <!-- Section description -->
+    <div class="row mt-2 mb-0">
+        <div class="col-md-12">
+            <div id="mdb-lightbox-ui"></div>
+            <div class="mb-1">
+                <div class="container-fluid">
+                <div class="row blog ml-auto align-items-center justify-content-center">
+                    <div class="col-md-12 mx-auto" >
+                    <div id="blogCarousel" class="carousel slide" data-ride="carousel">
+
+                        <ol class="carousel-indicators">
+                            <li data-target="#blogCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#blogCarousel" data-slide-to="1"></li>
+                            <li data-target="#blogCarousel" data-slide-to="2"></li>
+                            <li data-target="#blogCarousel" data-slide-to="3"></li>
+                            <li data-target="#blogCarousel" data-slide-to="4"></li>
+                        </ol>
+
+                        <!-- Carousel items -->
+                        <div class="carousel-inner mx-auto" >
+
+                            <div class="carousel-item active">
+                                <div class="row">
+                                    {% for part in part | slice(0,4)  %}
+                                            <div class="col-md-3 h-25">
+                                                <a href="#">
+                                                    <img src="{{asset('./assets/files/emploi/' ~ part.img)}}" alt="Image" class="img-fluid">
+                                                </a>
+                                            </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <!--.item-->
+
+                            <div class="carousel-item">
+                                <div class="row">
+                                    {% for part in part | slice(4,4)  %}
+                                            <div class="col-md-3 h-25">
+                                                <a href="#">
+                                                    <img src="{{asset('./assets/files/emploi/' ~ part.img)}}" alt="Image" class="img-fluid">
+                                                </a>
+                                            </div>
+                                    {% endfor %}
+                                </div> 
+                            </div>
+
+                            <div class="carousel-item">
+                                <div class="row">
+                                    {% for part in part | slice(8,4)  %}
+                                            <div class="col-md-3 h-25">
+                                                <a href="#">
+                                                    <img src="{{asset('./assets/files/emploi/' ~ part.img)}}" alt="Image" class="img-fluid">
+                                                </a>
+                                            </div>
+                                    {% endfor %}
+                                </div> 
+                            </div>
+
+                            <div class="carousel-item">
+                                <div class="row">
+                                    {% for part in part | slice(12,4)  %}
+                                            <div class="col-md-3 h-25">
+                                                <a href="#">
+                                                    <img src="{{asset('./assets/files/emploi/' ~ part.img)}}" alt="Image" class="img-fluid">
+                                                </a>
+                                            </div>
+                                    {% endfor %}
+                                </div> 
+                            </div>
+
+                            <div class="carousel-item">
+                                <div class="row">
+                                    {% for part in part | slice(16,4)  %}
+                                            <div class="col-md-3 h-25">
+                                                <a href="#">
+                                                    <img src="{{asset('./assets/files/emploi/' ~ part.img)}}" alt="Image" class="img-fluid">
+                                                </a>
+                                            </div>
+                                    {% endfor %}
+                                </div> 
+                            </div>
+                        
+
+                        </div>
+                        <!--.carousel-inner-->
+                    </div>
+                        <!--.Carousel-->
+
+                    </div>
+                </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="page-footer pt-4 mt-0 text-center text-md-left" style="background:#18191d">
+
+    <!-- Footer Links -->
+    <div class="container">
+      <div class="row mt-1">
+
+        <!-- First column -->
+        {# <div class="col-md-3 col-lg-4 col-xl-3 offset-xl-1 col-12 mb-4">
+          <h6 class="text-uppercase font-weight-bold mb-4 baseTextColor">Company name</h6>
+          <p>Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit amet,
+            consectetur
+            adipisicing elit.</p>
+        </div> #}
+        <!-- /.First column -->
+
+        <hr class="w-100 clearfix d-md-none aqua">
+
+        <!-- Second column -->
+        {# <div class="col-md-2 offset-xl-1 col-12 mb-4">
+          <h6 class="text-uppercase font-weight-bold mb-4 baseTextColor">Products</h6>
+          <p><a href="#!">MDBootstrap</a></p>
+          <p><a href="#!">MDWordPress</a></p>
+          <p><a href="#!">BrandFlow</a></p>
+          <p><a href="#!">Bootstrap Angular</a></p>
+        </div> #}
+        <!-- /.Second column -->
+
+        <hr class="w-100 clearfix d-md-none brown">
+
+        <!-- Third column -->
+        <div class="col-md-6 col-lg-6 col-12  mb-4">
+          <h6 class="text-uppercase font-weight-bold mb-4 baseTextColor">Horaires</h6>
+          <p>Lundi - Vendredi</p>
+          <p>08 H - 17 H</p>
+        </div>
+        <!-- /.Third column -->
+
+        <hr class="w-100 clearfix d-md-none brown">
+
+        <!-- Fourth column -->
+        <div class="col-md-6 col-lg-6 col-12">
+          <h6 class="text-uppercase font-weight-bold mb-4 baseTextColor">Contact</h6>
+          <p><i class="fas fa-home mr-3"></i> Titibougou, Bamako - MALI</p>
+          <p><i class="fas fa-envelope mr-3"></i> africonsulting08@gmail.com</p>
+          <p><i class="fas fa-fax mr-3"></i> (+223) 20 24 26 69</p>
+          <p><i class="fas fa-phone mr-3"></i> (+223) 78 47 93 63</p>
+          <p><i class="fas fa-phone mr-3"></i> (+223) 96 88 25 25</p>
+        </div>
+        <!-- /.Fourth column -->
+
+      </div>
+
+      <!-- /.Footer Links -->
+
+      <hr class="orange">
+
+      <!-- Footer Links -->
+      <div class="row mt-3 d-flex align-items-center">
+
+        <!-- Grid column -->
+        <div class="col-md-6 col-12">
+            <div class="row">
+                <div class="mr-auto font-weight-bold">
+                    <p class="text-left grey-text">© 2021 Tous droits réservés: <a><strong class="font-weight-bold">
+                        AFRIQUEBAARA</strong></a></p>
+                </div>
+                <div class="ml-auto">
+                    <p class="text-right grey-text text-monospace font-italic">Developped by <a><strong class="font-weight-bold text-small">
+                        AST</strong></a></p>
+                </div>
+            </div>
+            
+          <!-- Copyright -->
+          
+          <!-- Copyright -->
+          
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-6 col-12">
+          <!-- Social buttons -->
+          <div class="social-section">
+            <ul class="list-unstyled list-inline d-flex justify-content-end">
+              <li class="list-inline-item"><a class="btn-floating btn-small rgba-white-slight waves-effect waves-light"><i class="fab fa-facebook-f baseTextColor">
+                  </i></a>
+              </li>
+              <li class="list-inline-item"><a class="btn-floating btn-small rgba-white-slight waves-effect waves-light"><i class="fab fa-twitter baseTextColor">
+                  </i></a>
+              </li>
+              <li class="list-inline-item"><a class="btn-floating btn-small rgba-white-slight waves-effect waves-light"><i class="fab fa-linkedin baseTextColor">
+                  </i></a>
+              </li>
+            </ul>
+          </div>
+          <!-- /.Social buttons -->
+        </div>
+        <!-- Grid column -->
+
+      </div>
+  </div>
+</footer>

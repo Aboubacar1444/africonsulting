@@ -1,0 +1,41 @@
+{% extends "base.html.twig" %}
+{% block title %}AFRIQUEBAARA - Candidatures{% endblock %}
+{% block body %}
+    <main>
+        <section id="about" class="container">
+
+            <!-- Secion heading -->
+            <h2 class="baseTextColor text-uppercase font-weight-bold mb-3 pt-4 mt-5 text-center wow fadeIn" data-wow-delay=".2s" style="visibility: visible; animation-name: fadeIn; animation-delay: 0.2s;">Mes candidatures</h2>
+
+            <hr class="mb-5">
+
+            <!-- Grid row -->
+            {% for applie in applies %}   
+                <div class="row mt-5 mb-2">
+                    
+                    <!-- Grid column -->
+                    <div class="col-lg-5 col-md-12 mb-2 mr-auto wow fadeIn" data-wow-delay=".4s" style="visibility: visible; animation-name: fadeIn; animation-delay: 0.4s;">
+                        <h2 class="baseTextColor text-center text-uppercase font-weight-bold mb-3 pt-4 mt-5 wow fadeIn" data-wow-delay=".2s" style="visibility: visible; animation-name: fadeIn; animation-delay: 0.2s;">Emploi</h2>
+                        <!-- Image -->
+                        <img src="{{asset('./assets/files/emploi/' ~ applie.emploi.img )}}" class="img-fluid z-depth-1-half w-50 h-50" alt="My photo">
+                        <p align="justify" class="dark-grey-text mb-1 mt-2 font-weight-bold"> {{applie.emploi.title}}</p>
+                        <p align="justify" class="dark-grey-text"> Date post: {{applie.emploi.datepost}}  - Date limite: {{applie.emploi.datelimit}} </p>
+                        <p align="justify" class="dark-grey-text font-weight-bold"> {{applie.emploi.societyname}}</p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-lg-6 col-md-12 mb-4 wow fadeIn" data-wow-delay=".4s" style="visibility: visible; animation-name: fadeIn; animation-delay: 0.4s;">
+                        <h2 class="baseTextColor text-center text-uppercase font-weight-bold mb-3 pt-4 mt-5 wow fadeIn" data-wow-delay=".2s" style="visibility: visible; animation-name: fadeIn; animation-delay: 0.2s;">Décision</h2>
+                        <!-- Description -->
+                        <p align="justify" class="grey-text-3 card-body">{{applie.decision}}</p>
+                    </div>
+                    <!-- Grid column -->
+
+                </div>
+            {% endfor %}
+            <!-- Grid row -->
+
+        </section>
+    </main>
+{% endblock %}

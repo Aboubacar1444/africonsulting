@@ -1,0 +1,773 @@
+{% extends "base.html.twig" %}
+{% block title %}AFRIQUEBAARA - Appel d'offre{% endblock %}
+{% block body %}
+   
+   {% for abonnement in abonnement %}
+        {% if abonnement.isactive is same as ('Yes') %}
+           {% if abonnement.type is same as ('Premium') %}
+                {% if app.user.emplois.count < 1 %}
+                    <section class="intro-2 newemploi mb-2">
+                        <div class="mask">
+                            <div class="container h-100 justify-content-center align-items-center">
+
+                            <!-- Grid row -->
+                            <div class="row  pt-5 mt-3">
+
+                                <!-- Grid column -->
+                                <div class="col-md-12">
+
+                                    <div class="card">
+                                        <div class="card-body">
+
+                                        <h2 class="text-center mb-5 mt-4 font-weight-bold">
+                                            Ajout -Appel d'offre
+                                        </h2>
+                                        <hr>
+
+                                        <!-- Grid row -->
+                                        <div class="row mt-5">
+
+                                            <!-- Grid column -->
+                                            
+                                            <!-- Grid column -->
+
+                                            <!-- Grid column -->
+                                            <div class="col-md-9 justity-content-center">
+
+                                            <!-- Grid row -->
+                                            
+                                            <!-- Grid row -->
+
+                                            <!-- Body -->
+                                                {{ form_start(form) }}
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.title,{
+                                                            'class':'md-form',
+                                                            
+                                                        }) }}
+                                                        
+                                                    </div>
+                                                    <div class="md-form form-outline mb-0">
+                                                        {{ form_row(form.mission, {
+                                                            'attr':{
+                                                                'class':'form-control md-textarea',
+                                                                'rows':4,
+                                                            }
+                                                            
+                                                        }) }}
+                                                    </div>
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.formation,{
+                                                            'attr':{
+                                                                'class':'md-form md-textarea',
+                                                                'rows':4,
+                                                            }
+                                                        }) }}
+                                                    </div>
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.experience,{
+                                                            'attr':{
+                                                                'class':'md-form md-textarea',
+                                                                'rows':4,
+                                                            }
+                                                        }) }}
+                                                    </div>
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.competence,{
+                                                            'attr':{
+                                                                'class':'md-form md-textarea',
+                                                                'rows':4,
+                                                            }
+                                                        }) }}
+                                                    </div>
+                                                    
+                                                    <div class="md-form mb-0">
+                                                        <input placeholder="Selectionnez la date post" type="text" id="post" class="form-control datepicker" required>
+                                                        
+                                                        {{ form_row(form.datepost,{
+                                                            'attr':
+                                                            {
+                                                                'class':'md-form col-md-3',
+                                                                'hidden':'hidden',
+                                                            }
+                                                        }) }}
+                                                    </div>
+                                                    <div class="md-form mb-0 t">
+                                                        <input placeholder="Selectionnez la date limite" type="text" id="limit" class="form-control datepicker" required>
+                                                        
+                                                        {{ form_row(form.datelimit,{
+                                                            'attr':
+                                                            {
+                                                                'class':'md-form col-md-3',
+                                                                'hidden':'hidden',
+                                                            
+                                                            }
+                                                        }) }}
+                                                    </div>
+                                                    
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.societyname,{
+                                                            'attr':
+                                                            {
+                                                                'class':'md-form',
+                                                            }
+                                                            
+                                                        }) }}
+                                                    </div>
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.contrat,{
+                                                            'class':'md-form',
+                                                        }) }}
+                                                    </div>
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.pays,{
+                                                            'attr':{
+                                                                'class':'selectpicker',
+                                                                'data-live-search': 'true',
+                                                            }
+                                                        }) }}
+                                                    </div>
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.localite,{
+                                                            'attr':{
+                                                                'class':'selectpicker',
+                                                                'data-live-search': 'true',
+                                                            }
+                                                        }) }}
+                                                    </div>
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.categorie,{
+                                                            'attr':{
+                                                                'class':'selectpicker',
+                                                                'data-live-search': 'true',
+                                                            }
+                                                        }) }}
+                                                    </div>
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.extlink,{
+                                                            'attr':{
+                                                                'class':'md-form',
+                                                                'placeholder': 'Lien externe de candidature',
+                                                            }
+                                                        }) }}
+                                                    </div>
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.img,{
+                                                            'attr':{
+                                                                'placeholder':'image',
+                                                                'accept':'image/*',
+                                                            }
+                                                        }) }}
+                                                    </div>
+                                                    
+
+                                                    
+                                                    <div class="text-center">
+                                                        <button class="btn btn-outline-green btn-rounded mt-3 waves-effect waves-light" type="submit">Ajouter</button>
+                                                    </div>
+                                                {{ form_end(form) }}
+
+                                            </div>
+                                            <!-- Grid column -->
+
+                                        </div>
+                                        <!-- Grid row -->
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- Grid column -->
+
+                            </div>
+                            <!-- Grid row -->
+
+                            </div>
+                        </div>
+                    </section>
+                {% else %}
+                    <script> window.location.href="{{path('index')}}"; </script>
+                {% endif %}
+            {% endif %}
+            {% if abonnement.type is same as ('PremiumPlus') %}
+                {% if app.user.emplois.count < 3  %}
+                    <section class="intro-2 newemploi mb-2">
+                        <div class="mask">
+                            <div class="container h-100 justify-content-center align-items-center">
+
+                            <!-- Grid row -->
+                            <div class="row  pt-5 mt-3">
+
+                                <!-- Grid column -->
+                                <div class="col-md-12">
+
+                                    <div class="card">
+                                        <div class="card-body">
+
+                                        <h2 class="text-center mb-5 mt-4 font-weight-bold">
+                                            Ajout -Appel d'offre
+                                        </h2>
+                                        <hr>
+
+                                        <!-- Grid row -->
+                                        <div class="row mt-5">
+
+                                            <!-- Grid column -->
+                                            
+                                            <!-- Grid column -->
+
+                                            <!-- Grid column -->
+                                            <div class="col-md-9 justity-content-center">
+
+                                            <!-- Grid row -->
+                                            
+                                            <!-- Grid row -->
+
+                                            <!-- Body -->
+                                                {{ form_start(form) }}
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.title,{
+                                                            'class':'md-form',
+                                                            
+                                                        }) }}
+                                                        
+                                                    </div>
+                                                    <div class="md-form form-outline mb-0">
+                                                        {{ form_row(form.mission, {
+                                                            'attr':{
+                                                                'class':'form-control md-textarea',
+                                                                'rows':4,
+                                                            }
+                                                            
+                                                        }) }}
+                                                    </div>
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.formation,{
+                                                            'attr':{
+                                                                'class':'md-form md-textarea',
+                                                                'rows':4,
+                                                            }
+                                                        }) }}
+                                                    </div>
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.experience,{
+                                                            'attr':{
+                                                                'class':'md-form md-textarea',
+                                                                'rows':4,
+                                                            }
+                                                        }) }}
+                                                    </div>
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.competence,{
+                                                            'attr':{
+                                                                'class':'md-form md-textarea',
+                                                                'rows':4,
+                                                            }
+                                                        }) }}
+                                                    </div>
+                                                    
+                                                    <div class="md-form mb-0">
+                                                        <input placeholder="Selectionnez la date post" type="text" id="post" class="form-control datepicker" required>
+                                                        
+                                                        {{ form_row(form.datepost,{
+                                                            'attr':
+                                                            {
+                                                                'class':'md-form col-md-3',
+                                                                'hidden':'hidden',
+                                                            }
+                                                        }) }}
+                                                    </div>
+                                                    <div class="md-form mb-0 t">
+                                                        <input placeholder="Selectionnez la date limite" type="text" id="limit" class="form-control datepicker" required>
+                                                        
+                                                        {{ form_row(form.datelimit,{
+                                                            'attr':
+                                                            {
+                                                                'class':'md-form col-md-3',
+                                                                'hidden':'hidden',
+                                                            
+                                                            }
+                                                        }) }}
+                                                    </div>
+                                                    
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.societyname,{
+                                                            'attr':
+                                                            {
+                                                                'class':'md-form',
+                                                            }
+                                                            
+                                                        }) }}
+                                                    </div>
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.contrat,{
+                                                            'class':'md-form',
+                                                        }) }}
+                                                    </div>
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.pays,{
+                                                            'attr':{
+                                                                'class':'selectpicker',
+                                                                'data-live-search': 'true',
+                                                            }
+                                                        }) }}
+                                                    </div>
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.localite,{
+                                                            'attr':{
+                                                                'class':'selectpicker',
+                                                                'data-live-search': 'true',
+                                                            }
+                                                        }) }}
+                                                    </div>
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.categorie,{
+                                                            'attr':{
+                                                                'class':'selectpicker',
+                                                                'data-live-search': 'true',
+                                                            }
+                                                        }) }}
+                                                    </div>
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.extlink,{
+                                                            'attr':{
+                                                                'class':'md-form',
+                                                                'placeholder': 'Lien externe de candidature',
+                                                            }
+                                                        }) }}
+                                                    </div>
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.img,{
+                                                            'attr':{
+                                                                'placeholder':'image',
+                                                                'accept':'image/*',
+                                                            }
+                                                        }) }}
+                                                    </div>
+                                                    
+
+                                                    
+                                                    <div class="text-center">
+                                                        <button class="btn btn-outline-green btn-rounded mt-3 waves-effect waves-light" type="submit">Ajouter</button>
+                                                    </div>
+                                                {{ form_end(form) }}
+
+                                            </div>
+                                            <!-- Grid column -->
+
+                                        </div>
+                                        <!-- Grid row -->
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- Grid column -->
+
+                            </div>
+                            <!-- Grid row -->
+
+                            </div>
+                        </div>
+                    </section>
+                {% else %}
+                    <script> window.location.href="{{path('index')}}"; </script>
+                {% endif %}
+            {% endif %}
+            {% if abonnement.type is same as ('Orium') %}
+                {% if app.user.emplois.count < 6 %}
+                    <section class="intro-2 newemploi mb-2">
+                        <div class="mask">
+                            <div class="container h-100 justify-content-center align-items-center">
+
+                            <!-- Grid row -->
+                            <div class="row  pt-5 mt-3">
+
+                                <!-- Grid column -->
+                                <div class="col-md-12">
+
+                                    <div class="card">
+                                        <div class="card-body">
+
+                                        <h2 class="text-center mb-5 mt-4 font-weight-bold">
+                                            Ajout -Appel d'offre
+                                        </h2>
+                                        <hr>
+
+                                        <!-- Grid row -->
+                                        <div class="row mt-5">
+
+                                            <!-- Grid column -->
+                                            
+                                            <!-- Grid column -->
+
+                                            <!-- Grid column -->
+                                            <div class="col-md-9 justity-content-center">
+
+                                            <!-- Grid row -->
+                                            
+                                            <!-- Grid row -->
+
+                                            <!-- Body -->
+                                                {{ form_start(form) }}
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.title,{
+                                                            'class':'md-form',
+                                                            
+                                                        }) }}
+                                                        
+                                                    </div>
+                                                    <div class="md-form form-outline mb-0">
+                                                        {{ form_row(form.mission, {
+                                                            'attr':{
+                                                                'class':'form-control md-textarea',
+                                                                'rows':4,
+                                                            }
+                                                            
+                                                        }) }}
+                                                    </div>
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.formation,{
+                                                            'attr':{
+                                                                'class':'md-form md-textarea',
+                                                                'rows':4,
+                                                            }
+                                                        }) }}
+                                                    </div>
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.experience,{
+                                                            'attr':{
+                                                                'class':'md-form md-textarea',
+                                                                'rows':4,
+                                                            }
+                                                        }) }}
+                                                    </div>
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.competence,{
+                                                            'attr':{
+                                                                'class':'md-form md-textarea',
+                                                                'rows':4,
+                                                            }
+                                                        }) }}
+                                                    </div>
+                                                    
+                                                    <div class="md-form mb-0">
+                                                        <input placeholder="Selectionnez la date post" type="text" id="post" class="form-control datepicker" required>
+                                                        
+                                                        {{ form_row(form.datepost,{
+                                                            'attr':
+                                                            {
+                                                                'class':'md-form col-md-3',
+                                                                'hidden':'hidden',
+                                                            }
+                                                        }) }}
+                                                    </div>
+                                                    <div class="md-form mb-0 t">
+                                                        <input placeholder="Selectionnez la date limite" type="text" id="limit" class="form-control datepicker" required>
+                                                        
+                                                        {{ form_row(form.datelimit,{
+                                                            'attr':
+                                                            {
+                                                                'class':'md-form col-md-3',
+                                                                'hidden':'hidden',
+                                                            
+                                                            }
+                                                        }) }}
+                                                    </div>
+                                                    
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.societyname,{
+                                                            'attr':
+                                                            {
+                                                                'class':'md-form',
+                                                            }
+                                                            
+                                                        }) }}
+                                                    </div>
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.contrat,{
+                                                            'class':'md-form',
+                                                        }) }}
+                                                    </div>
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.pays,{
+                                                            'attr':{
+                                                                'class':'selectpicker',
+                                                                'data-live-search': 'true',
+                                                            }
+                                                        }) }}
+                                                    </div>
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.localite,{
+                                                            'attr':{
+                                                                'class':'selectpicker',
+                                                                'data-live-search': 'true',
+                                                            }
+                                                        }) }}
+                                                    </div>
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.categorie,{
+                                                            'attr':{
+                                                                'class':'selectpicker',
+                                                                'data-live-search': 'true',
+                                                            }
+                                                        }) }}
+                                                    </div>
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.extlink,{
+                                                            'attr':{
+                                                                'class':'md-form',
+                                                                'placeholder': 'Lien externe de candidature',
+                                                            }
+                                                        }) }}
+                                                    </div>
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.img,{
+                                                            'attr':{
+                                                                'placeholder':'image',
+                                                                'accept':'image/*',
+                                                            }
+                                                        }) }}
+                                                    </div>
+                                                    
+
+                                                    
+                                                    <div class="text-center">
+                                                        <button class="btn btn-outline-green btn-rounded mt-3 waves-effect waves-light" type="submit">Ajouter</button>
+                                                    </div>
+                                                {{ form_end(form) }}
+
+                                            </div>
+                                            <!-- Grid column -->
+
+                                        </div>
+                                        <!-- Grid row -->
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- Grid column -->
+
+                            </div>
+                            <!-- Grid row -->
+
+                            </div>
+                        </div>
+                    </section>
+                {% else %}
+                    <script> window.location.href="{{path('index')}}"; </script>
+                {% endif %}
+            {% endif %}
+            {% if abonnement.type is same as ('OriumPlus') %}
+                {% if app.user.emplois.count < 15 %}
+                    <section class="intro-2 newemploi mb-2">
+                        <div class="mask">
+                            <div class="container h-100 justify-content-center align-items-center">
+
+                            <!-- Grid row -->
+                            <div class="row  pt-5 mt-3">
+
+                                <!-- Grid column -->
+                                <div class="col-md-12">
+
+                                    <div class="card">
+                                        <div class="card-body">
+
+                                        <h2 class="text-center mb-5 mt-4 font-weight-bold">
+                                            Ajout -Appel d'offre
+                                        </h2>
+                                        <hr>
+
+                                        <!-- Grid row -->
+                                        <div class="row mt-5">
+
+                                            <!-- Grid column -->
+                                            
+                                            <!-- Grid column -->
+
+                                            <!-- Grid column -->
+                                            <div class="col-md-9 justity-content-center">
+
+                                            <!-- Grid row -->
+                                            
+                                            <!-- Grid row -->
+
+                                            <!-- Body -->
+                                                {{ form_start(form) }}
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.title,{
+                                                            'class':'md-form',
+                                                            
+                                                        }) }}
+                                                        
+                                                    </div>
+                                                    <div class="md-form form-outline mb-0">
+                                                        {{ form_row(form.mission, {
+                                                            'attr':{
+                                                                'class':'form-control md-textarea',
+                                                                'rows':4,
+                                                            }
+                                                            
+                                                        }) }}
+                                                    </div>
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.formation,{
+                                                            'attr':{
+                                                                'class':'md-form md-textarea',
+                                                                'rows':4,
+                                                            }
+                                                        }) }}
+                                                    </div>
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.experience,{
+                                                            'attr':{
+                                                                'class':'md-form md-textarea',
+                                                                'rows':4,
+                                                            }
+                                                        }) }}
+                                                    </div>
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.competence,{
+                                                            'attr':{
+                                                                'class':'md-form md-textarea',
+                                                                'rows':4,
+                                                            }
+                                                        }) }}
+                                                    </div>
+                                                    
+                                                    <div class="md-form mb-0">
+                                                        <input placeholder="Selectionnez la date post" type="text" id="post" class="form-control datepicker" required>
+                                                        
+                                                        {{ form_row(form.datepost,{
+                                                            'attr':
+                                                            {
+                                                                'class':'md-form col-md-3',
+                                                                'hidden':'hidden',
+                                                            }
+                                                        }) }}
+                                                    </div>
+                                                    <div class="md-form mb-0 t">
+                                                        <input placeholder="Selectionnez la date limite" type="text" id="limit" class="form-control datepicker" required>
+                                                        
+                                                        {{ form_row(form.datelimit,{
+                                                            'attr':
+                                                            {
+                                                                'class':'md-form col-md-3',
+                                                                'hidden':'hidden',
+                                                            
+                                                            }
+                                                        }) }}
+                                                    </div>
+                                                    
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.societyname,{
+                                                            'attr':
+                                                            {
+                                                                'class':'md-form',
+                                                            }
+                                                            
+                                                        }) }}
+                                                    </div>
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.contrat,{
+                                                            'class':'md-form',
+                                                        }) }}
+                                                    </div>
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.pays,{
+                                                            'attr':{
+                                                                'class':'selectpicker',
+                                                                'data-live-search': 'true',
+                                                            }
+                                                        }) }}
+                                                    </div>
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.localite,{
+                                                            'attr':{
+                                                                'class':'selectpicker',
+                                                                'data-live-search': 'true',
+                                                            }
+                                                        }) }}
+                                                    </div>
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.categorie,{
+                                                            'attr':{
+                                                                'class':'selectpicker',
+                                                                'data-live-search': 'true',
+                                                            }
+                                                        }) }}
+                                                    </div>
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.extlink,{
+                                                            'attr':{
+                                                                'class':'md-form',
+                                                                'placeholder': 'Lien externe de candidature',
+                                                            }
+                                                        }) }}
+                                                    </div>
+                                                    <div class="md-form mb-0">
+                                                        {{ form_row(form.img,{
+                                                            'attr':{
+                                                                'placeholder':'image',
+                                                                'accept':'image/*',
+                                                            }
+                                                        }) }}
+                                                    </div>
+                                                    
+
+                                                    
+                                                    <div class="text-center">
+                                                        <button class="btn btn-outline-green btn-rounded mt-3 waves-effect waves-light" type="submit">Ajouter</button>
+                                                    </div>
+                                                {{ form_end(form) }}
+
+                                            </div>
+                                            <!-- Grid column -->
+
+                                        </div>
+                                        <!-- Grid row -->
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- Grid column -->
+
+                            </div>
+                            <!-- Grid row -->
+
+                            </div>
+                        </div>
+                    </section>
+                {% else %}
+                    <script> window.location.href="{{path('index')}}"; </script>
+                {% endif %}
+            {% endif %}
+        {% else %}
+            <script> window.location.href="{{path('index')}}"; </script>
+        {% endif %}
+   {% endfor %}
+   
+    
+{% endblock %}
+{% block ScriptP %}
+    <script>
+        $().ready(function(){
+            
+            
+            $('#post').change(function(){
+                datepost=$(this).val();
+                if (datepost !==""){
+                    $('#appel_datepost').val($('[name="_submit"]').val());
+                }
+            });
+            $('#limit').change(function(){
+                datelimit=$(this).val();
+                if (datelimit !== ""){
+                    $('#appel_datelimit').val($('.t').children('input[name="_submit"]').val());
+                }
+            });
+        });
+    </script>
+{% endblock %}

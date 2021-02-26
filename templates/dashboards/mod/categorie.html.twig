@@ -1,0 +1,91 @@
+{% extends "base.html.twig" %}
+{% block title %}AFRIQUEBAARA - Nouvelle catégorie{% endblock %}
+{% block body %}
+     <div class="row pb-4 d-flex justify-content-center mb-4">
+
+        <div class="text-center col-sm-8 col-md-12">
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success alert-dismissible fade show justify-content-center" role="alert">
+                    <strong> {{ message }} </strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endfor %}
+            {% for messagee in app.flashes('error') %}
+                <div class="alert alert-danger alert-dismissible fade show justify-content-center" role="alert">
+                    <strong> {{ messagee }} </strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endfor %}
+        </div>
+
+        </div>
+     <section class="intro-2 newemploi mb-2">
+            <div class="mask">
+                <div class="container h-100 justify-content-center align-items-center">
+
+                <!-- Grid row -->
+                <div class="row  pt-5 mt-3">
+
+                    <!-- Grid column -->
+                    <div class="col-md-12">
+
+                        <div class="card">
+                            <div class="card-body">
+
+                            <h2 class="text-center mb-5 mt-4 font-weight-bold">
+                                Ajout - Nouvelle Catégorie
+                            </h2>
+                            <hr>
+
+                            <!-- Grid row -->
+                            <div class="row mt-5">
+
+                                <!-- Grid column -->
+                                
+                                <!-- Grid column -->
+
+                                <!-- Grid column -->
+                                <div class="col-md-9 justity-content-center">
+
+                                <!-- Grid row -->
+                                
+                                <!-- Grid row -->
+
+                                <!-- Body -->
+                                    {{ form_start(form) }}
+                                        <div class="md-form mb-0">
+                                            {{ form_row(form.name,{
+                                                'class':'md-form',
+                                                
+                                            }) }}
+                                            
+                                        </div>
+                                      
+                                        <div class="text-center">
+                                            <button class="btn btn-outline-green btn-rounded mt-3 waves-effect waves-light" type="submit">Ajouter</button>
+                                        </div>
+                                    {{ form_end(form) }}
+
+                                </div>
+                                <!-- Grid column -->
+
+                            </div>
+                            <!-- Grid row -->
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Grid column -->
+
+                </div>
+                <!-- Grid row -->
+
+                </div>
+            </div>
+        </section>
+{% endblock %}

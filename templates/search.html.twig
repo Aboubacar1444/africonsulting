@@ -1,0 +1,80 @@
+{% extends "base.html.twig" %}
+{% block title %}AFRIQUEBAARA - Recherche{% endblock %}
+{% block body %}
+    <section class="container section pb-3 text-center text-lg-left wow fadeIn" data-wow-delay="0.3s">
+
+        <!--Section heading-->
+        <h2 class="font-weight-bold text-center h1 my-5"> 
+            Recherche
+        </h2>
+
+        <div class="text-center col-sm-8 col-md-12">
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success alert-dismissible fade show justify-content-center" role="alert">
+                    <strong> {{ message }} </strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endfor %}
+            {% for messagee in app.flashes('error') %}
+                <div class="alert alert-danger alert-dismissible fade show justify-content-center" role="alert">
+                    <strong> {{ messagee }} </strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endfor %}
+        </div>
+        <!--Section description-->
+        <div class="row">
+            <div class="mx-auto bg-beige">
+                <!--Grid row-->
+                
+                {% for search in searched %}
+                    <div class="row">
+
+                        <!--Grid column-->
+                            <div class="col-lg-4 mb-4">
+                                <!--Featured image-->
+                                <div class="view overlay z-depth-1 w-75 h-auto">
+                                    <img src="{{asset('./assets/files/emploi/'~ search.img)}}" class="img-fluid" alt="First sample image">
+                                    <div class="mask rgba-white-slight"></div>
+                                </div>
+                            </div>
+                        <!--Grid column-->
+
+                        <!--Grid column-->
+                            <div class="col-lg-7 mb-4">
+                                <!--Excerpt-->
+                                <a class="brown-text">
+                                <h6 class="pb-1"><i class="fas fa-briefcase"></i><strong> {{search.societyname}}</strong></h6>
+                                </a>
+                                <h4 class="mb-4"><strong>{{search.title}}</strong></h4>
+                                <p class ="text-truncate">{{search.mission}}</p>
+                                <div class="row">
+                                    <p class="mr-auto font-weight-bold">par <a class="font-weight-bold">{{search.societyname}} <i class="fas fa-calendar-check"></i></a>, le {{search.datepost}}</p>
+                                    <p class="ml-auto font-weight-bold">Date limite <i class="fas fa-calendar-times"></i> {{search.datelimit}}</p>
+                                </div>
+                                <a class="btn btn-dark baseTextColor" href="{{path('emploidetails',{'emploi':search.id})}}">Voir plus</a>
+                            </div>
+                        <!--Grid column-->
+                    </div>
+                    <!--Grid row-->
+
+                    <hr class="mb-2">
+                {% endfor %}
+                
+
+                <!--Pagination dark-->
+                <nav class="wow fadeIn mb-4 mt-5" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeIn;">
+                    <div class="pagination pg-dark flex-center">
+                        <!--Arrow left-->
+                           {{ knp_pagination_render(searched) }}
+                    </div>
+                </nav>
+                <!--/Pagination dark--> 
+            </div>
+        </div>
+    </section>
+{% endblock %}

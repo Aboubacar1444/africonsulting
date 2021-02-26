@@ -1,0 +1,833 @@
+{% extends "base.html.twig" %}
+{% block title %}AFRIQUEBAARA - INSCRIPTION{% endblock %}
+{% block body %}
+    <main>
+        <section>
+            <hr>
+            <div class="container-fluid tohide">
+                <h1 class="h1 text-center">Quel type de compte voulez-vous créer ?</h1>
+                <hr>
+                <div class="row justify-content-center">
+                    <select class="mdb-select md-form col-md-6" id="choice">
+                        <option value="" disabled selected>Choisissez</option>
+                        <option value="Candidat">Candidat</option>
+                        <option value="Recruteur">Recruteur</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+         <div class="row pb-4 d-flex justify-content-center mb-4">
+
+            <div class="text-center col-sm-8 col-md-12">
+                {% for message in app.flashes('success') %}
+                    <div class="alert alert-success alert-dismissible fade show justify-content-center" role="alert">
+                        <strong> {{ message }} </strong>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                {% endfor %}
+                {% for messagee in app.flashes('error') %}
+                    <div class="alert alert-danger alert-dismissible fade show justify-content-center" role="alert">
+                        <strong> {{ messagee }} </strong>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+        <section class="intro-2 candidat mb-2" style="background-image: url({{asset('assets/img/inscription.jpg')}}); background-repeat: no-repeat; background-size: cover; background-position: center center; display:none;">
+            <div class="mask rgba-amber-slight">
+                <div class="container h-100 justify-content-center align-items-center">
+
+                <!-- Grid row -->
+                <div class="row  pt-5 mt-3">
+
+                    <!-- Grid column -->
+                    <div class="col-md-12">
+
+                        <div class="card">
+                            <div class="card-body">
+
+                            <h2 class="text-center mb-5 mt-4 font-weight-bold">
+                                Candidat
+                            </h2>
+                            <hr>
+
+                            <!-- Grid row -->
+                            <div class="row mt-5">
+
+                                <!-- Grid column -->
+                                
+                                <!-- Grid column -->
+
+                                <!-- Grid column -->
+                                <div class="col-md-9 justity-content-center">
+
+                                <!-- Grid row -->
+                                {# <div class="row pb-4 d-flex justify-content-center mb-4">
+
+                                    <div class="text-center col-sm-8 col-md-12">
+                                        {% for message in app.flashes('success') %}
+                                            <div class="alert alert-success alert-dismissible fade show justify-content-center" role="alert">
+                                                <strong> {{ message }} </strong>
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                        {% endfor %}
+                                        {% for messagee in app.flashes('error') %}
+                                            <div class="alert alert-danger alert-dismissible fade show justify-content-center" role="alert">
+                                                <strong> {{ messagee }} </strong>
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+
+                                </div> #}
+                                <!-- Grid row -->
+
+                                <!-- Body -->
+                                    {{ form_start(form) }}
+                                        <div class="md-form mb-0">
+                                            {{ form_row(form.forename,{
+                                                'class':'md-form',
+                                                
+                                            }) }}
+                                            
+                                        </div>
+                                        <div class="md-form mb-0">
+                                            {{ form_row(form.name, {
+                                                'class':'md-form',
+                                                
+                                            }) }}
+                                        </div>
+                                        <div class="md-form mb-0">
+                                            {{ form_row(form.sexe,{
+                                                
+                                            }) }}
+                                        </div>
+                                        <div class="md-form mb-0">
+                                            {{ form_row(form.statutm,{
+                                                
+                                            }) }}
+                                        </div>
+                                        <div class="md-form mb-0">
+                                            <select class="selectpicker w-100" id="nationality" data-live-search="true" >
+                                                <option value="" disabled selected>Nationalité</option>
+                                                <option value="FR">Française</option>
+                                                <option value="CH">Suisse</option>
+                                                <option value="BE">Belge</option>
+                                                <option value="DE">Allemande</option>
+                                                <option value="IT">Italienne</option>
+                                                <option value="AF">Afghane</option>
+                                                <option value="AL">Albanaise</option>
+                                                <option value="DZ">Algerienne</option>
+                                                <option value="US">Americaine</option>
+                                                <option value="AD">Andorrane</option>
+                                                <option value="AO">Angolaise</option>
+                                                <option value="AG">Antiguaise et barbudienne</option>
+                                                <option value="AR">Argentine</option>
+                                                <option value="AM">Armenienne</option>
+                                                <option value="AU">Australienne</option>
+                                                <option value="AT">Autrichienne</option>
+                                                <option value="AZ">Azerbaïdjanaise</option>
+                                                <option value="BS">Bahamienne</option>
+                                                <option value="BH">Bahreinienne</option>
+                                                <option value="BD">Bangladaise</option>
+                                                <option value="BB">Barbadienne</option>
+                                                <option value="BZ">Belizienne</option>
+                                                <option value="BJ">Beninoise</option>
+                                                <option value="BT">Bhoutanaise</option>
+                                                <option value="BY">Bielorusse</option>
+                                                <option value="MM">Birmane</option>
+                                                <option value="GW">Bissau-Guinéenne</option>
+                                                <option value="BO">Bolivienne</option>
+                                                <option value="BA">Bosnienne</option>
+                                                <option value="BW">Botswanaise</option>
+                                                <option value="BR">Bresilienne</option>
+                                                <option value="GB">Britannique</option>
+                                                <option value="BN">Bruneienne</option>
+                                                <option value="BG">Bulgare</option>
+                                                <option value="BF">Burkinabe</option>
+                                                <option value="BI">Burundaise</option>
+                                                <option value="KH">Cambodgienne</option>
+                                                <option value="CM">Camerounaise</option>
+                                                <option value="CA">Canadienne</option>
+                                                <option value="CV">Cap-verdienne</option>
+                                                <option value="CF">Centrafricaine</option>
+                                                <option value="CL">Chilienne</option>
+                                                <option value="CN">Chinoise</option>
+                                                <option value="CY">Chypriote</option>
+                                                <option value="CO">Colombienne</option>
+                                                <option value="KM">Comorienne</option>
+                                                <option value="CG">Congolaise</option>
+                                                <option value="CR">Costaricaine</option>
+                                                <option value="HR">Croate</option>
+                                                <option value="CU">Cubaine</option>
+                                                <option value="DK">Danoise</option>
+                                                <option value="DJ">Djiboutienne</option>
+                                                <option value="DO">Dominicaine</option>
+                                                <option value="DM">Dominiquaise</option>
+                                                <option value="EG">Egyptienne</option>
+                                                <option value="AE">Emirienne</option>
+                                                <option value="GQ">Equato-guineenne</option>
+                                                <option value="EC">Equatorienne</option>
+                                                <option value="ER">Erythreenne</option>
+                                                <option value="ES">Espagnole</option>
+                                                <option value="TL">Est-timoraise</option>
+                                                <option value="EE">Estonienne</option>
+                                                <option value="ET">Ethiopienne</option>
+                                                <option value="FJ">Fidjienne</option>
+                                                <option value="FI">Finlandaise</option>
+                                                <option value="GA">Gabonaise</option>
+                                                <option value="GM">Gambienne</option>
+                                                <option value="GE">Georgienne</option>
+                                                <option value="GH">Ghaneenne</option>
+                                                <option value="GD">Grenadienne</option>
+                                                <option value="GT">Guatemalteque</option>
+                                                <option value="GN">Guineenne</option>
+                                                <option value="GF">Guyanienne</option>
+                                                <option value="HT">Haïtienne</option>
+                                                <option value="GR">Hellenique</option>
+                                                <option value="HN">Hondurienne</option>
+                                                <option value="HU">Hongroise</option>
+                                                <option value="IN">Indienne</option>
+                                                <option value="ID">Indonesienne</option>
+                                                <option value="IQ">Irakienne</option>
+                                                <option value="IE">Irlandaise</option>
+                                                <option value="IS">Islandaise</option>
+                                                <option value="IL">Israélienne</option>
+                                                <option value="CI">Ivoirienne</option>
+                                                <option value="JM">Jamaïcaine</option>
+                                                <option value="JP">Japonaise</option>
+                                                <option value="JO">Jordanienne</option>
+                                                <option value="KZ">Kazakhstanaise</option>
+                                                <option value="KE">Kenyane</option>
+                                                <option value="KG">Kirghize</option>
+                                                <option value="KI">Kiribatienne</option>
+                                                <option value="KN">Kittitienne-et-nevicienne</option>
+                                                <option value="XK">Kossovienne</option>
+                                                <option value="KW">Koweitienne</option>
+                                                <option value="LA">Laotienne</option>
+                                                <option value="LS">Lesothane</option>
+                                                <option value="LV">Lettone</option>
+                                                <option value="LB">Libanaise</option>
+                                                <option value="LR">Liberienne</option>
+                                                <option value="LY">Libyenne</option>
+                                                <option value="LI">Liechtensteinoise</option>
+                                                <option value="LT">Lituanienne</option>
+                                                <option value="LU">Luxembourgeoise</option>
+                                                <option value="MK">Macedonienne</option>
+                                                <option value="MY">Malaisienne</option>
+                                                <option value="MW">Malawienne</option>
+                                                <option value="MV">Maldivienne</option>
+                                                <option value="MG">Malgache</option>
+                                                <option value="ML">Malienne</option>
+                                                <option value="MT">Maltaise</option>
+                                                <option value="MA">Marocaine</option>
+                                                <option value="MH">Marshallaise</option>
+                                                <option value="MU">Mauricienne</option>
+                                                <option value="MR">Mauritanienne</option>
+                                                <option value="MX">Mexicaine</option>
+                                                <option value="FM">Micronesienne</option>
+                                                <option value="MD">Moldave</option>
+                                                <option value="MC">Monegasque</option>
+                                                <option value="MN">Mongole</option>
+                                                <option value="ME">Montenegrine</option>
+                                                <option value="MZ">Mozambicaine</option>
+                                                <option value="NA">Namibienne</option>
+                                                <option value="NR">Nauruane</option>
+                                                <option value="NL">Neerlandaise</option>
+                                                <option value="NZ">Neo-zelandaise</option>
+                                                <option value="NP">Nepalaise</option>
+                                                <option value="NI">Nicaraguayenne</option>
+                                                <option value="NG">Nigeriane</option>
+                                                <option value="NE">Nigerienne</option>
+                                                <option value="KP">Nord-coréenne</option>
+                                                <option value="NO">Norvegienne</option>
+                                                <option value="OM">Omanaise</option>
+                                                <option value="UG">Ougandaise</option>
+                                                <option value="UZ">Ouzbeke</option>
+                                                <option value="PK">Pakistanaise</option>
+                                                <option value="PW">Palau</option>
+                                                <option value="PS">Palestinienne</option>
+                                                <option value="PA">Panameenne</option>
+                                                <option value="PG">Papouane-neoguineenne</option>
+                                                <option value="PY">Paraguayenne</option>
+                                                <option value="PE">Peruvienne</option>
+                                                <option value="PH">Philippine</option>
+                                                <option value="PL">Polonaise</option>
+                                                <option value="PR">Portoricaine</option>
+                                                <option value="PT">Portugaise</option>
+                                                <option value="QA">Qatarienne</option>
+                                                <option value="RO">Roumaine</option>
+                                                <option value="RU">Russe</option>
+                                                <option value="RW">Rwandaise</option>
+                                                <option value="LC">Saint-Lucienne</option>
+                                                <option value="SM">Saint-Marinaise</option>
+                                                <option value="VC">Saint-Vincentaise-et-Grenadine</option>
+                                                <option value="SB">Salomonaise</option>
+                                                <option value="SV">Salvadorienne</option>
+                                                <option value="WS">Samoane</option>
+                                                <option value="ST">Santomeenne</option>
+                                                <option value="SA">Saoudienne</option>
+                                                <option value="SN">Senegalaise</option>
+                                                <option value="RS">Serbe</option>
+                                                <option value="SC">Seychelloise</option>
+                                                <option value="SL">Sierra-leonaise</option>
+                                                <option value="SG">Singapourienne</option>
+                                                <option value="SK">Slovaque</option>
+                                                <option value="SI">Slovene</option>
+                                                <option value="SO">Somalienne</option>
+                                                <option value="SD">Soudanaise</option>
+                                                <option value="LK">Sri-lankaise</option>
+                                                <option value="ZA">Sud-africaine</option>
+                                                <option value="KR">Sud-coréenne</option>
+                                                <option value="SE">Suedoise</option>
+                                                <option value="SR">Surinamaise</option>
+                                                <option value="SZ">Swazie</option>
+                                                <option value="SY">Syrienne</option>
+                                                <option value="TJ">Tadjike</option>
+                                                <option value="TW">Taiwanaise</option>
+                                                <option value="TZ">Tanzanienne</option>
+                                                <option value="TD">Tchadienne</option>
+                                                <option value="CZ">Tcheque</option>
+                                                <option value="TH">Thaïlandaise</option>
+                                                <option value="TG">Tonguienne</option>
+                                                <option value="TG">Tonguienne</option>
+                                                <option value="TT">Trinidadienne</option>
+                                                <option value="TN">Tunisienne</option>
+                                                <option value="TM">Turkmene</option>
+                                                <option value="TR">Turque</option>
+                                                <option value="TV">Tuvaluane</option>
+                                                <option value="UA">Ukrainienne</option>
+                                                <option value="UY">Uruguayenne</option>
+                                                <option value="VU">Vanuatuane</option>
+                                                <option value="VE">Venezuelienne</option>
+                                                <option value="VN">Vietnamienne</option>
+                                                <option value="YE">Yemenite</option>
+                                                <option value="ZM">Zambienne</option>
+                                                <option value="ZW">Zimbabweenne</option>
+                                            </select>
+                                            {{ form_row(form.nationalie,{
+                                                'attr':
+                                                {
+                                                    'class':'md-form selectpicker w-25',
+                                                    'placeholder': 'Nationalité',
+                                                    'readonly':'readonly',
+                                                    'hidden':'hidden',
+                                                    
+                                                }
+                                            }) }}
+                                        </div>
+                                        <div class="md-form mb-0">
+                                            {{ form_row(form.domaine,{
+                                                'attr':
+                                                {
+                                                    'class':'selectpicker',
+                                                    'data-live-search':'true',
+                                                }
+                                            }) }}
+                                        </div>
+                                        
+                                        <div class="mb-0">
+                                            {{ form_row(form.localite,{
+                                                'attr':
+                                                {
+                                                    'class':'selectpicker',
+                                                    'data-live-search':'true',
+                                                }
+                                                
+                                            }) }}
+                                        </div>
+                                        <div class="md-form mb-0">
+                                            {{ form_row(form.email,{
+                                                'class':'md-form',
+                                            }) }}
+                                        </div>
+                                        <div class="md-form mb-0">
+                                            {{ form_row(form.telnumber,{
+                                                'class':'md-form',
+                                            }) }}
+                                        </div>
+                                        <div class="md-form mb-0">
+                                            {{ form_row(form.password.first,{
+                                                'class':'md-form',
+                                            }) }}
+                                        </div>
+                                        <div class="md-form mb-0">
+                                            {{ form_row(form.password.second,{
+                                                'class':'md-form',
+                                            }) }}
+                                        </div>
+                                        <div class="md-form mb-0">
+                                            {{ form_row(form.cv,{
+                                                'attr':{
+                                                    'placeholder':'CV (pdf requis)',
+                                                }
+                                            }) }}
+                                        </div>
+                                        
+                                        <div class="md-form mb-0">
+                                            {{ form_row(form.captcha,{
+                                                'attr':{
+                                                    'placeholder':'Prouvez que vous n\'êtes pas un robot',
+                                                }
+                                            }) }}
+                                        </div>
+                                        
+                                        <div class="text-center">
+                                            <button class="btn btn-outline-primary btn-rounded mt-3 waves-effect waves-light" type="submit" id="submit" disabled>Valider</button>
+                                        </div>
+                                    {{ form_end(form) }}
+
+                                </div>
+                                <!-- Grid column -->
+
+                            </div>
+                            <!-- Grid row -->
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Grid column -->
+
+                </div>
+                <!-- Grid row -->
+
+                </div>
+            </div>
+        </section>
+        <section class="intro-2 recruteur mb-2" style="background-image: url(https://mdbootstrap.com/img/Photos/Others/forest1.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center; display:none;">
+            <div class="mask rgba-amber-slight">
+                <div class="container h-100 justify-content-center align-items-center">
+
+                <!-- Grid row -->
+                <div class="row  pt-5 mt-3">
+
+                    <!-- Grid column -->
+                    <div class="col-md-12">
+
+                        <div class="card">
+                            <div class="card-body">
+
+                            <h2 class="text-center mb-5 mt-4 font-weight-bold">
+                                Recruteur
+                            </h2>
+                            <hr>
+
+                            <!-- Grid row -->
+                            <div class="row mt-5">
+
+                                <!-- Grid column -->
+                                
+                                <!-- Grid column -->
+
+                                <!-- Grid column -->
+                                <div class="col-md-9 justity-content-center">
+
+                                <!-- Grid row -->
+                                {# <div class="row pb-4 d-flex justify-content-center mb-4">
+
+                                    <div class="text-center col-sm-8 col-md-12">
+                                        {% for message in app.flashes('success') %}
+                                            <div class="alert alert-success alert-dismissible fade show justify-content-center" role="alert">
+                                                <strong> {{ message }} </strong>
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                        {% endfor %}
+                                        {% for messagee in app.flashes('error') %}
+                                            <div class="alert alert-danger alert-dismissible fade show justify-content-center" role="alert">
+                                                <strong> {{ messagee }} </strong>
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+
+                                </div> #}
+                                <!-- Grid row -->
+
+                                <!-- Body -->
+                                    {{ form_start(formr) }}
+                                        <div class="md-form mb-0">
+                                            {{ form_row(formr.forename,{
+                                                'class':'md-form',
+                                                
+                                            }) }}
+                                            
+                                        </div>
+                                        <div class="md-form mb-0">
+                                            {{ form_row(formr.name, {
+                                                'class':'md-form',
+                                                
+                                            }) }}
+                                        </div>
+                                        <div class="md-form mb-0">
+                                            {{ form_row(formr.sexe,{
+                                                
+                                            }) }}
+                                        </div>
+                                        <div class="md-form mb-0">
+                                            {{ form_row(formr.statutm,{
+                                                
+                                            }) }}
+                                        </div>
+                                        <div class="md-form mb-0">
+                                            {{ form_row(formr.societyname,{
+                                                
+                                            }) }}
+                                        </div>
+                                        <div class="md-form mb-0">
+                                            <select class="selectpicker w-100" id="nationality" data-live-search="true" >
+                                                <option value="" disabled selected>Nationalité</option>
+                                                <option value="FR">Française</option>
+                                                <option value="CH">Suisse</option>
+                                                <option value="BE">Belge</option>
+                                                <option value="DE">Allemande</option>
+                                                <option value="IT">Italienne</option>
+                                                <option value="AF">Afghane</option>
+                                                <option value="AL">Albanaise</option>
+                                                <option value="DZ">Algerienne</option>
+                                                <option value="US">Americaine</option>
+                                                <option value="AD">Andorrane</option>
+                                                <option value="AO">Angolaise</option>
+                                                <option value="AG">Antiguaise et barbudienne</option>
+                                                <option value="AR">Argentine</option>
+                                                <option value="AM">Armenienne</option>
+                                                <option value="AU">Australienne</option>
+                                                <option value="AT">Autrichienne</option>
+                                                <option value="AZ">Azerbaïdjanaise</option>
+                                                <option value="BS">Bahamienne</option>
+                                                <option value="BH">Bahreinienne</option>
+                                                <option value="BD">Bangladaise</option>
+                                                <option value="BB">Barbadienne</option>
+                                                <option value="BZ">Belizienne</option>
+                                                <option value="BJ">Beninoise</option>
+                                                <option value="BT">Bhoutanaise</option>
+                                                <option value="BY">Bielorusse</option>
+                                                <option value="MM">Birmane</option>
+                                                <option value="GW">Bissau-Guinéenne</option>
+                                                <option value="BO">Bolivienne</option>
+                                                <option value="BA">Bosnienne</option>
+                                                <option value="BW">Botswanaise</option>
+                                                <option value="BR">Bresilienne</option>
+                                                <option value="GB">Britannique</option>
+                                                <option value="BN">Bruneienne</option>
+                                                <option value="BG">Bulgare</option>
+                                                <option value="BF">Burkinabe</option>
+                                                <option value="BI">Burundaise</option>
+                                                <option value="KH">Cambodgienne</option>
+                                                <option value="CM">Camerounaise</option>
+                                                <option value="CA">Canadienne</option>
+                                                <option value="CV">Cap-verdienne</option>
+                                                <option value="CF">Centrafricaine</option>
+                                                <option value="CL">Chilienne</option>
+                                                <option value="CN">Chinoise</option>
+                                                <option value="CY">Chypriote</option>
+                                                <option value="CO">Colombienne</option>
+                                                <option value="KM">Comorienne</option>
+                                                <option value="CG">Congolaise</option>
+                                                <option value="CR">Costaricaine</option>
+                                                <option value="HR">Croate</option>
+                                                <option value="CU">Cubaine</option>
+                                                <option value="DK">Danoise</option>
+                                                <option value="DJ">Djiboutienne</option>
+                                                <option value="DO">Dominicaine</option>
+                                                <option value="DM">Dominiquaise</option>
+                                                <option value="EG">Egyptienne</option>
+                                                <option value="AE">Emirienne</option>
+                                                <option value="GQ">Equato-guineenne</option>
+                                                <option value="EC">Equatorienne</option>
+                                                <option value="ER">Erythreenne</option>
+                                                <option value="ES">Espagnole</option>
+                                                <option value="TL">Est-timoraise</option>
+                                                <option value="EE">Estonienne</option>
+                                                <option value="ET">Ethiopienne</option>
+                                                <option value="FJ">Fidjienne</option>
+                                                <option value="FI">Finlandaise</option>
+                                                <option value="GA">Gabonaise</option>
+                                                <option value="GM">Gambienne</option>
+                                                <option value="GE">Georgienne</option>
+                                                <option value="GH">Ghaneenne</option>
+                                                <option value="GD">Grenadienne</option>
+                                                <option value="GT">Guatemalteque</option>
+                                                <option value="GN">Guineenne</option>
+                                                <option value="GF">Guyanienne</option>
+                                                <option value="HT">Haïtienne</option>
+                                                <option value="GR">Hellenique</option>
+                                                <option value="HN">Hondurienne</option>
+                                                <option value="HU">Hongroise</option>
+                                                <option value="IN">Indienne</option>
+                                                <option value="ID">Indonesienne</option>
+                                                <option value="IQ">Irakienne</option>
+                                                <option value="IE">Irlandaise</option>
+                                                <option value="IS">Islandaise</option>
+                                                <option value="IL">Israélienne</option>
+                                                <option value="CI">Ivoirienne</option>
+                                                <option value="JM">Jamaïcaine</option>
+                                                <option value="JP">Japonaise</option>
+                                                <option value="JO">Jordanienne</option>
+                                                <option value="KZ">Kazakhstanaise</option>
+                                                <option value="KE">Kenyane</option>
+                                                <option value="KG">Kirghize</option>
+                                                <option value="KI">Kiribatienne</option>
+                                                <option value="KN">Kittitienne-et-nevicienne</option>
+                                                <option value="XK">Kossovienne</option>
+                                                <option value="KW">Koweitienne</option>
+                                                <option value="LA">Laotienne</option>
+                                                <option value="LS">Lesothane</option>
+                                                <option value="LV">Lettone</option>
+                                                <option value="LB">Libanaise</option>
+                                                <option value="LR">Liberienne</option>
+                                                <option value="LY">Libyenne</option>
+                                                <option value="LI">Liechtensteinoise</option>
+                                                <option value="LT">Lituanienne</option>
+                                                <option value="LU">Luxembourgeoise</option>
+                                                <option value="MK">Macedonienne</option>
+                                                <option value="MY">Malaisienne</option>
+                                                <option value="MW">Malawienne</option>
+                                                <option value="MV">Maldivienne</option>
+                                                <option value="MG">Malgache</option>
+                                                <option value="ML">Malienne</option>
+                                                <option value="MT">Maltaise</option>
+                                                <option value="MA">Marocaine</option>
+                                                <option value="MH">Marshallaise</option>
+                                                <option value="MU">Mauricienne</option>
+                                                <option value="MR">Mauritanienne</option>
+                                                <option value="MX">Mexicaine</option>
+                                                <option value="FM">Micronesienne</option>
+                                                <option value="MD">Moldave</option>
+                                                <option value="MC">Monegasque</option>
+                                                <option value="MN">Mongole</option>
+                                                <option value="ME">Montenegrine</option>
+                                                <option value="MZ">Mozambicaine</option>
+                                                <option value="NA">Namibienne</option>
+                                                <option value="NR">Nauruane</option>
+                                                <option value="NL">Neerlandaise</option>
+                                                <option value="NZ">Neo-zelandaise</option>
+                                                <option value="NP">Nepalaise</option>
+                                                <option value="NI">Nicaraguayenne</option>
+                                                <option value="NG">Nigeriane</option>
+                                                <option value="NE">Nigerienne</option>
+                                                <option value="KP">Nord-coréenne</option>
+                                                <option value="NO">Norvegienne</option>
+                                                <option value="OM">Omanaise</option>
+                                                <option value="UG">Ougandaise</option>
+                                                <option value="UZ">Ouzbeke</option>
+                                                <option value="PK">Pakistanaise</option>
+                                                <option value="PW">Palau</option>
+                                                <option value="PS">Palestinienne</option>
+                                                <option value="PA">Panameenne</option>
+                                                <option value="PG">Papouane-neoguineenne</option>
+                                                <option value="PY">Paraguayenne</option>
+                                                <option value="PE">Peruvienne</option>
+                                                <option value="PH">Philippine</option>
+                                                <option value="PL">Polonaise</option>
+                                                <option value="PR">Portoricaine</option>
+                                                <option value="PT">Portugaise</option>
+                                                <option value="QA">Qatarienne</option>
+                                                <option value="RO">Roumaine</option>
+                                                <option value="RU">Russe</option>
+                                                <option value="RW">Rwandaise</option>
+                                                <option value="LC">Saint-Lucienne</option>
+                                                <option value="SM">Saint-Marinaise</option>
+                                                <option value="VC">Saint-Vincentaise-et-Grenadine</option>
+                                                <option value="SB">Salomonaise</option>
+                                                <option value="SV">Salvadorienne</option>
+                                                <option value="WS">Samoane</option>
+                                                <option value="ST">Santomeenne</option>
+                                                <option value="SA">Saoudienne</option>
+                                                <option value="SN">Senegalaise</option>
+                                                <option value="RS">Serbe</option>
+                                                <option value="SC">Seychelloise</option>
+                                                <option value="SL">Sierra-leonaise</option>
+                                                <option value="SG">Singapourienne</option>
+                                                <option value="SK">Slovaque</option>
+                                                <option value="SI">Slovene</option>
+                                                <option value="SO">Somalienne</option>
+                                                <option value="SD">Soudanaise</option>
+                                                <option value="LK">Sri-lankaise</option>
+                                                <option value="ZA">Sud-africaine</option>
+                                                <option value="KR">Sud-coréenne</option>
+                                                <option value="SE">Suedoise</option>
+                                                <option value="SR">Surinamaise</option>
+                                                <option value="SZ">Swazie</option>
+                                                <option value="SY">Syrienne</option>
+                                                <option value="TJ">Tadjike</option>
+                                                <option value="TW">Taiwanaise</option>
+                                                <option value="TZ">Tanzanienne</option>
+                                                <option value="TD">Tchadienne</option>
+                                                <option value="CZ">Tcheque</option>
+                                                <option value="TH">Thaïlandaise</option>
+                                                <option value="TG">Tonguienne</option>
+                                                <option value="TG">Tonguienne</option>
+                                                <option value="TT">Trinidadienne</option>
+                                                <option value="TN">Tunisienne</option>
+                                                <option value="TM">Turkmene</option>
+                                                <option value="TR">Turque</option>
+                                                <option value="TV">Tuvaluane</option>
+                                                <option value="UA">Ukrainienne</option>
+                                                <option value="UY">Uruguayenne</option>
+                                                <option value="VU">Vanuatuane</option>
+                                                <option value="VE">Venezuelienne</option>
+                                                <option value="VN">Vietnamienne</option>
+                                                <option value="YE">Yemenite</option>
+                                                <option value="ZM">Zambienne</option>
+                                                <option value="ZW">Zimbabweenne</option>
+                                            </select>
+                                            {{ form_row(formr.nationalie,{
+                                                'attr':
+                                                {
+                                                    'class':'md-form selectpicker w-25',
+                                                    'placeholder': 'Nationalité',
+                                                    'readonly':'readonly',
+                                                    'hidden':'hidden',
+                                                    
+                                                }
+                                            }) }}
+                                        </div>
+                                        <div class="md-form mb-0">
+                                            {{ form_row(formr.domaine,{
+                                                'attr':
+                                                {
+                                                    'class':'selectpicker',
+                                                    'data-live-search':'true',
+                                                }
+                                            }) }}
+                                        </div>
+                                        
+                                        <div class="mb-0">
+                                            {{ form_row(formr.localite,{
+                                                'attr':
+                                                {
+                                                    'class':'selectpicker',
+                                                    'data-live-search':'true',
+                                                }
+                                                
+                                            }) }}
+                                        </div>
+                                        <div class="md-form mb-0">
+                                            {{ form_row(formr.email,{
+                                                'class':'md-form',
+                                            }) }}
+                                        </div>
+                                        <div class="md-form mb-0">
+                                            {{ form_row(formr.telnumber,{
+                                                'class':'md-form',
+                                            }) }}
+                                        </div>
+                                        <div class="md-form mb-0">
+                                            {{ form_row(formr.password.first,{
+                                                'class':'md-form',
+                                            }) }}
+                                        </div>
+                                        <div class="md-form mb-0">
+                                            {{ form_row(formr.password.second,{
+                                                'class':'md-form',
+                                            }) }}
+                                        </div>
+                                        <div class="md-form mb-0">
+                                            {{ form_row(formr.img,{
+                                                'attr':{
+                                                    'placeholder':'Logo (faculatif)',
+                                                    'accept':'image/*',
+                                                }
+                                            }) }}
+                                        </div>
+                                        <div class="md-form mb-0">
+                                            {{ form_row(formr.captcha,{
+                                                'attr':{
+                                                    'placeholder':'Prouvez que vous n\'êtes pas un robot',
+                                                }
+                                            }) }}
+                                        </div>
+                                        
+                                        <div class="text-center">
+                                            <button class="btn btn-outline-primary btn-rounded mt-3 waves-effect waves-light" type="submit" id="submitr" disabled>Valider</button>
+                                        </div>
+                                    {{ form_end(formr) }}
+
+                                </div>
+                                <!-- Grid column -->
+
+                            </div>
+                            <!-- Grid row -->
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Grid column -->
+
+                </div>
+                <!-- Grid row -->
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+{% endblock %}
+{% block ScriptP %}
+    <script>
+        $().ready(function(){
+            $('#choice').change(function(){
+                choice=$(this).val();
+                $('.tohide').hide('fast');
+                if(choice == 'Candidat'){
+                    $('.candidat').css('display','');
+                }
+                if(choice == 'Recruteur'){
+                    $('.recruteur').css('display','');
+                }
+            });
+            $('#nationality').change(function(){
+                nation=$(this).val();
+                if (nation !==""){
+                    console.log(nation);
+                    $('#candidate_nationalie').val(nation);
+                }
+            });
+            $checkcap=$('#candidate_captcha').val();
+            if($checkcap == '' || $checkcap.length < 5 || $cehckcap.length > 5){
+                $('#submit').attr('disabled','disabled');
+            }
+            $('#candidate_captcha').keyup(function(){
+                $checkcap=$(this).val();
+                if($checkcap.length = 0 || $checkcap.length < 5 || $checkcap.length > 5){
+                    $('#submit').attr('disabled','disabled');
+                }
+                if($checkcap.length == 5){
+                    $('#submit').attr('disabled',false);
+                }
+            });
+
+            $checkcapr=$('#recruteur_captcha').val();
+            if($checkcapr == '' || $checkcapr.length < 5 || $cehckcapr.length > 5){
+                $('#submitr').attr('disabled','disabled');
+            }
+            $('#recruteur_captcha').keyup(function(){
+                $checkcap=$(this).val();
+                if($checkcapr.length = 0 || $checkcapr.length < 5 || $checkcapr.length > 5){
+                    $('#submitr').attr('disabled','disabled');
+                }
+                if($checkcap.length == 5){
+                    $('#submitr').attr('disabled',false);
+                }
+            });
+                
+                   
+                   
+        });
+    </script>
+{% endblock %}

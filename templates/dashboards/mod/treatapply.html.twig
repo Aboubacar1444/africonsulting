@@ -1,0 +1,166 @@
+{% extends "base.html.twig" %}
+{% block title %}AFRIQUEBAARA - Candidatures{% endblock %}
+{% block body %}
+    <main>
+        <section class="my-5">
+            <div class="container-fluid">
+                {# <form action="" method="post" enctype="multipart/form-data"> #}
+                    <div class="container-fluid ">
+                        <div class="row justify-content-center">
+                            <div class="testimonial-card mt-md-3">
+                                <div class="avatar mx-auto white">
+                                    {% if candidat.candidat.img  %}
+                                            <img src="{{ asset('./assets/files/user/' ~ candidat.candidat.img) }}" class="profile-pic rounded-circle" alt="First sample avatar image">   
+                                        {% else %}
+                                            <img src="https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png" class="tform-pic rounded-circle" alt="First sample avatar image" name="photo">
+                                    {% endif %}
+                                    {# <input type="hidden" name="photo" value="{{  tform.photo }}"> #}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row justify-content-center text-center">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="md-form form-sm mb-2 mt-2">
+                                <h3>{{candidat.emploi.title}}<h3> 
+                            </div>
+                            <p class='dark-grey-text'>Date limite: {{candidat.emploi.datelimit}}</p>
+                        </div>
+                    </div>
+
+
+                    <div class="row justify-content-center text-center">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="md-form form-sm mb-0">
+                                <h5>Mission<h5>   
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12">
+                            <div class="md-form form-sm mb-0">
+                                <p class='dark-grey-text'>{{candidat.emploi.mission}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% if candidat.emploi.formation %}
+                        <div class="row justify-content-center text-center">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="md-form form-sm mb-0">
+                                    <h5>Formation<h5>   
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12">
+                                <div class="md-form form-sm mb-0">
+                                    <p class='dark-grey-text'>{{candidat.emploi.formation}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if candidat.emploi.experience %}
+                        <div class="row justify-content-center text-center">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="md-form form-sm mb-0">
+                                    <h5>Expérience<h5>   
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12">
+                                <div class="md-form form-sm mb-0">
+                                    <p class='dark-grey-text'>{{candidat.emploi.experience}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if candidat.emploi.competence %}
+                        <div class="row justify-content-center text-center">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="md-form form-sm mb-0">
+                                    <h5>Compétence<h5>   
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12">
+                                <div class="md-form form-sm mb-0">
+                                    <p class='dark-grey-text'>{{candidat.emploi.competence}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                   
+                    
+                    
+                    
+                    <div class="row"> 
+                        
+                        <div class="col-lg-12 col-md-12">
+                            {# <p class="h5 mb-4">{{file}}</p> #}
+                            <div class="embed-responsive embed-responsive z-depth-1-half map-container" style="height: 800px;">
+                                <iframe class="embed-responsive-item " src="{{ asset('assets/files/user/' ~ candidat.candidat.cv) }}#view=fit" frameborder="0"
+                                style="border:0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    {% if candidat.candidat.lettrem %}
+                        <div class="row"> 
+                        
+                            <div class="col-lg-12 col-md-12">
+                                {# <p class="h5 mb-4">{{file}}</p> #}
+                                <div class="embed-responsive embed-responsive z-depth-1-half map-container" style="height: 800px;">
+                                    <iframe class="embed-responsive-item " src="{{ asset('assets/files/user/' ~ candidat.candidat.lettrem) }}#view=fit" frameborder="0"
+                                    style="border:0" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        
+                        </div>
+                    {% endif %}
+                    {% if candidat.candidat.other %}
+                        <div class="row"> 
+                        
+                            <div class="col-lg-12 col-md-12">
+                                {# <p class="h5 mb-4">{{file}}</p> #}
+                                <div class="embed-responsive embed-responsive z-depth-1-half map-container" style="height: 800px;">
+                                    <iframe class="embed-responsive-item " src="{{ asset('assets/files/user/' ~ candidat.candidat.other) }}#view=fit" frameborder="0"
+                                    style="border:0" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        
+                        </div>
+                    {% endif %}
+                    
+                    </hr>
+
+                    <div class="row justify-content-center text-center">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="md-form form-sm mb-0">
+                                  <textarea class="md-textarea form-control" name="decision" id="decision" rows="3" placeholder="Saisissez la décision à envoyer au candidat."></textarea>
+                                  <label for="decision">Décision</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12">
+                            <div class="md-form form-sm mb-0">
+                                <a name="treat" id="treat" class="btn btn-primary" href="#" role="button">Traiter la demande</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                {# </form> #}
+            </div>
+        </section>
+    
+    </main>
+{% endblock %}
+{% block ScriptP %}
+    <script>
+        $(document).ready(function(){ 
+            $('#decision').keyup(function(){
+                $decision=$(this).val();
+                if($(this).val()){
+                    $("a#treat").attr("href", function() { 
+                        return '{{ path("treatapply",{'id':candidat.id}) }}'+'?decision='+$decision;
+                    });
+                }
+            });
+        });
+            
+    </script>      
+{% endblock %}
