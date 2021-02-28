@@ -162,4 +162,33 @@ class HomeController extends AbstractController
         
     }
 
+    /**
+     * @Route("/sitemap", defaults={"_format"="xml"}, name="sitemap")
+     */
+    public function getMap(): Response
+    {
+        
+        $response= new Response();    
+        $response->headers->set('Content-Type', 'text/xml');
+        
+        return $this->render('sitemap.xml.twig',
+            [
+                'homeActive'=>false,
+                'emploi'=>false,
+                'pays'=>false,
+                'categories'=>false,
+                'ville'=>false,
+                'contrat'=>false,
+                'user'=>false,
+                'type'=>false,
+                'abonnement'=>false,
+                'counted'=>false,
+                'ads'=>false,
+                'part'=>false,
+            ],
+            $response,
+        );   
+        
+    }
+
 }
